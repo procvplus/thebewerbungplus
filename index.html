@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- Meta Pixel TheBewerbung+ : à ajouter ici -->
+<title>TheBewerbung+</title>
+<meta name="description" content="Bewerbung professionnelle : Deckblatt, Lebenslauf et Motivationsschreiben en allemand, livrés en moins de 24 h.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='17' y='10' width='30' height='40' rx='4' fill='%23fff' stroke='%231c2f5c' stroke-width='4'/%3E%3Ccircle cx='46' cy='46' r='12' fill='%2322a35a'/%3E%3Cpath d='M40 46l4 4 8-8' stroke='%23fff' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+/* TheBewerbung+ : its own page. Dark navy hero with the order form, then proof (Instagram comments), the three documents, the Deckblatt explainer, the 5 mistakes, 3 steps, price + payment, FAQ. German flag stripes and the green "validated" check from the logo as accents. */
+:root{
+  --bg:#ffffff; --bg2:#f4f6fa; --surface:#ffffff; --fg:#121c33; --muted:#5a6579; --line:#e1e6ef;
+  --brand:#1c2f5c; --brand-fg:#ffffff; --accent:#1f8f50; --soft:#e7f5ed; --gold:#f0b429; --red:#d42a2a;
+  --wa:#1b9e50; --wa-fg:#ffffff; --hero:#101a36; --hero-fg:#f3f5fa; --hero-muted:#b4bed3;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1120; --bg2:#0f172b; --surface:#141e36; --fg:#ecf0f7; --muted:#a3aec4; --line:#24304d;
+  --brand:#4a6dbd; --brand-fg:#ffffff; --accent:#41c27d; --soft:#14301f; --gold:#f2bf47; --red:#ef5a5a;
+  --wa:#34c473; --wa-fg:#04210f; --hero:#070c18; --hero-fg:#eef1f8; --hero-muted:#a3aec4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1120; --bg2:#0f172b; --surface:#141e36; --fg:#ecf0f7; --muted:#a3aec4; --line:#24304d;
+  --brand:#4a6dbd; --brand-fg:#ffffff; --accent:#41c27d; --soft:#14301f; --gold:#f2bf47; --red:#ef5a5a;
+  --wa:#34c473; --wa-fg:#04210f; --hero:#070c18; --hero-fg:#eef1f8; --hero-muted:#a3aec4; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Plus Jakarta Sans","Tajawal",system-ui,sans-serif;font-size:16px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+html[lang="ar"] body{font-family:"Tajawal","Plus Jakarta Sans",system-ui,sans-serif;font-size:17px}
+h1,h2,h3{margin:0;line-height:1.2;text-wrap:balance;letter-spacing:-.02em;font-weight:800}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.45;letter-spacing:0}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto}
+.full{margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.flag{height:5px;display:flex;direction:ltr}.flag i{flex:1}.flag i:nth-child(1){background:#16181d}.flag i:nth-child(2){background:#d42a2a}.flag i:nth-child(3){background:#f0b429}
+.stripe{background:linear-gradient(90deg,#16181d 0 33.3%,#d42a2a 33.3% 66.6%,#f0b429 66.6%)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:.85em 1.4em;border-radius:999px;font-weight:800;text-decoration:none;border:2px solid transparent;font-size:1rem;cursor:pointer;font-family:inherit}
+.btn svg{width:1.25em;height:1.25em;fill:currentColor;flex:none}
+.btn-wa{background:var(--wa);color:var(--wa-fg)}
+.btn-main{background:var(--brand);color:var(--brand-fg)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
+.btn:hover{filter:brightness(1.07)}
+.btn:focus-visible,.pill:focus-visible,summary:focus-visible,details a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.opt:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+
+/* header */
+.logo{display:inline-flex;align-items:center;gap:10px;direction:ltr;text-decoration:none;color:var(--fg)}
+.logo svg{width:44px;height:44px;flex:none}
+.logo .wm{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:-.02em;line-height:1}
+.logo .wm b{color:var(--brand)}.logo .wm span{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo .wm b{color:#fff}}
+:root[data-theme="dark"] .logo .wm b{color:#fff}
+header.bar{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.acts{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:.45em .95em;border-radius:999px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.9rem}
+.bar .btn{padding:.5em 1em;font-size:.92rem}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-fg);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:5px;background:linear-gradient(90deg,#16181d 0 33.3%,#d42a2a 33.3% 66.6%,#f0b429 66.6%)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;padding-block:54px 64px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 14px;font-weight:800;font-size:.86rem;color:#fff;margin-bottom:18px}
+.badge .mini{display:inline-flex;width:20px;height:13px;border-radius:2px;overflow:hidden;flex-direction:column}
+.badge .mini i{flex:1}.badge .mini i:nth-child(1){background:#16181d}.badge .mini i:nth-child(2){background:#d42a2a}.badge .mini i:nth-child(3){background:#f0b429}
+.hero h1{font-size:clamp(2.3rem,6vw,4rem)}
+html[lang="fr"] .hero h1{font-size:clamp(2rem,5vw,3.3rem)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{color:var(--hero-muted);font-size:1.12rem;margin-top:16px;max-width:52ch}
+.chips{display:grid;gap:10px;margin-top:26px}
+.chip{display:flex;align-items:center;gap:12px;font-weight:700}
+.chip .ic{width:38px;height:38px;border-radius:12px;background:rgba(65,194,125,.16);color:#5fd394;display:grid;place-items:center;flex:none}
+.chip .ic svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.proof{display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);flex-wrap:wrap}
+.proof .stars{color:var(--gold);letter-spacing:2px;font-size:1.1rem}
+.proof a{color:var(--hero-fg);font-weight:700;text-underline-offset:4px}
+
+/* order form */
+.leadform{background:var(--surface);color:var(--fg);border-radius:22px;padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.leadform::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,#16181d 0 33.3%,#d42a2a 33.3% 66.6%,#f0b429 66.6%)}
+.lf-h{font-size:1.45rem;margin-bottom:2px}
+.lf-p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+.leadform form{display:grid;gap:12px}
+.fld{display:grid;gap:5px;min-width:0}
+.fld label,.fld .lb{font-weight:700;font-size:.9rem}
+.r{color:var(--red)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input[type=text],input[type=email],select,textarea{width:100%;font:inherit;color:var(--fg);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:.65em .85em;min-width:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:.4em 1em;cursor:pointer;font-weight:700}
+.opt input{accent-color:var(--accent)}
+.nocv{display:flex;gap:10px;align-items:center;font-weight:700;cursor:pointer;background:var(--soft);border-radius:12px;padding:12px 14px}.nocv input{width:20px;height:20px;accent-color:var(--accent)}
+#nocvBox{display:grid;gap:12px;border:1px dashed var(--line);border-radius:14px;padding:14px}#nocvBox[hidden]{display:none}
+#nocvBox textarea{resize:vertical;min-height:84px}
+.err{color:var(--red);font-weight:700;font-size:.9rem;min-height:1.1em}
+.btn-big{width:100%;padding:1em 1.2em;font-size:1.05rem;border-radius:14px}
+.bad{border-color:var(--red) !important;box-shadow:0 0 0 2px rgba(212,42,42,.2)}
+.minirevs{display:grid;gap:10px;margin:4px 0 2px}
+.mr{margin:0;display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--bg2);border:1px solid var(--line)}
+.mr .av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:800}
+.mr .st{color:var(--gold);letter-spacing:2px;font-size:.9rem;line-height:1}
+.mr blockquote{margin:5px 0;font-size:.92rem;line-height:1.55}
+.mr figcaption{font-size:.8rem;color:var(--muted);font-weight:700;direction:ltr;text-align:start}
+.reassure{margin:10px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font-weight:700;font-size:.84rem;color:var(--accent)}
+.reassure span{padding:8px 13px;background:var(--soft);border-radius:999px;white-space:nowrap}
+.done{display:none;text-align:center}.done.on{display:block}.done h3{margin-bottom:8px}
+.prev{white-space:pre-wrap;text-align:start;direction:ltr;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.86rem;margin:14px 0;overflow:auto;max-height:220px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+@media (prefers-reduced-motion:no-preference){@keyframes ready{0%,100%{box-shadow:0 0 0 0 rgba(27,158,80,.55)}50%{box-shadow:0 0 0 12px rgba(27,158,80,0)}}#send.ready{animation:ready 1.6s ease-out infinite}}
+
+
+.dic{width:64px;height:64px;border-radius:18px;background:var(--soft);color:var(--accent);display:grid;place-items:center}
+.dic svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dlist{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.dlist li{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.05rem;padding:14px 16px;border:1px solid rgba(255,255,255,.14);border-radius:14px}
+.dlist li::before{content:"\2713";display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#22a35a;color:#fff;font-size:.85rem;flex:none}
+.hprice{display:inline-flex;align-items:center;gap:16px;margin-top:24px;background:var(--gold);color:#13233a;border-radius:20px;padding:12px 22px 12px 16px;box-shadow:0 14px 34px rgba(240,180,41,.25)}
+.hp-amt{font:800 clamp(3rem,8vw,4.4rem)/1 "Plus Jakarta Sans",sans-serif;direction:ltr;letter-spacing:-.03em}
+.hp-txt{display:grid;line-height:1.3}.hp-txt b{font-size:1.3rem;font-weight:800}.hp-txt small{font-weight:700;font-size:.92rem;opacity:.8}
+/* sections */
+section.s{padding-block:72px}
+section.alt{background:var(--bg2)}
+.eyebrow{display:inline-block;font-weight:800;font-size:.85rem;color:var(--accent);margin-bottom:8px;letter-spacing:.02em}
+.h2{font-size:clamp(1.8rem,3.8vw,2.6rem)}
+.h2 em{font-style:normal;color:var(--brand);box-shadow:inset 0 -.38em 0 rgba(240,180,41,.45)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .h2 em{color:var(--gold);box-shadow:none}}
+:root[data-theme="dark"] .h2 em{color:var(--gold);box-shadow:none}
+.sub{color:var(--muted);margin-top:10px;max-width:62ch}
+.head-c{text-align:center}.head-c .sub{margin-inline:auto}
+
+/* Instagram comments wall */
+.wall{columns:3 280px;column-gap:16px;margin-top:34px}
+.ig{break-inside:avoid;margin:0 0 16px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
+.ig .top{display:flex;align-items:center;gap:10px;margin-bottom:10px;direction:ltr}
+.ig .av{width:36px;height:36px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f0b429,#d42a2a,#8a3ab9);flex:none}
+.ig .av span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--surface);font-weight:800;font-size:.9rem;color:var(--fg)}
+.ig .u{font-weight:800;font-size:.9rem}
+.ig .src{margin-left:auto;color:var(--muted);display:flex}
+.ig .src svg{width:18px;height:18px;fill:currentColor}
+.ig p{font-size:1rem;line-height:1.7}
+.ig .t{margin-top:10px;font-size:.8rem;color:var(--muted);font-weight:700}
+.wall-cta{text-align:center;margin-top:10px}
+.wall-cta a{color:var(--brand);font-weight:800;text-underline-offset:4px}
+
+/* documents */
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.doc{border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:12px;background:var(--surface)}
+.mock{background:linear-gradient(160deg,#1c2f5c,#101a36);border-radius:14px;aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden;direction:ltr}
+.page{width:46%;aspect-ratio:1/1.414;background:#fff;border-radius:3px;box-shadow:0 14px 30px rgba(0,0,0,.35);position:relative;overflow:hidden;padding:8%;color:#1c2f5c;transform:rotate(-2deg)}
+.page::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#16181d 0 33.3%,#d42a2a 33.3% 66.6%,#f0b429 66.6%)}
+.page .t{font:800 9px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.06em;text-align:center}
+.page .ln{height:3px;border-radius:2px;background:#d6e0ea;margin:5px 0}
+.page .ln.s{width:60%}
+.page .ph{width:44%;aspect-ratio:3/4;margin:8px auto;border-radius:3px;background:linear-gradient(#cfdbe7,#e6edf4);position:relative}
+.page .ph::after{content:"";position:absolute;left:30%;right:30%;top:22%;aspect-ratio:1;border-radius:50%;background:#9fb3c7;box-shadow:0 22px 0 8px #9fb3c7}
+.page.cv{padding:0}
+.page.cv .side{position:absolute;inset:0 auto 0 0;width:34%;background:#1c2f5c;padding:10% 6%}
+.page.cv .side .av{width:70%;aspect-ratio:1;border-radius:50%;background:#9fb3c7;border:2px solid #fff;margin:0 auto 8px}
+.page.cv .side .ln{background:#3e6890}
+.page.cv .col{position:absolute;left:40%;right:8%;top:10%}
+.page.cv .col .h{height:5px;width:55%;background:#1c2f5c;border-radius:2px;margin:8px 0 6px}
+.doc .tg{justify-self:start;font:800 .8rem "Plus Jakarta Sans",sans-serif;color:var(--accent);direction:ltr}
+.doc h3{font-size:1.22rem}
+.doc p{color:var(--muted);font-size:.97rem}
+
+/* deckblatt */
+.deck .sub{max-width:70ch}
+.deck .why{grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.deck .why{grid-template-columns:1fr}}
+.deck-vis{background:var(--hero);color:#fff;border-radius:24px;padding:72px 30px 34px;position:relative;overflow:hidden}
+.deck-vis .tag{position:absolute;top:26px;inset-inline-start:30px;background:var(--gold);color:#13233a;font:800 .9rem "Plus Jakarta Sans",sans-serif;padding:6px 14px;border-radius:999px}
+.why{display:grid;gap:12px;margin-top:24px}
+.why .w{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.why .w .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;grid-row:span 2}
+.why .w b{font-weight:800}
+.why .w small{color:var(--muted);font-size:.93rem}
+
+/* mistakes */
+.mist{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px}
+.m{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:8px;align-content:start;position:relative}
+.m .k{font:800 2rem/1 "Plus Jakarta Sans",sans-serif;color:rgba(212,42,42,.22)}
+.m b{font-size:1.02rem;line-height:1.4}
+.m small{color:var(--muted);font-size:.92rem;line-height:1.55}
+.fix{margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--soft);border-radius:16px;padding:16px 18px;font-weight:800}
+.fix::before{content:"\2713";display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;flex:none}
+
+/* steps */
+.tl{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:st;position:relative}
+.tl li{counter-increment:st;position:relative;padding-top:58px}
+.tl li::before{content:counter(st);position:absolute;top:0;inset-inline-start:0;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--gold);color:#13233a;font:800 1.15rem "Plus Jakarta Sans",sans-serif;z-index:1}
+.tl li::after{content:"";position:absolute;top:21px;inset-inline-start:52px;inset-inline-end:-14px;height:2px;background:var(--line)}
+.tl li:last-child::after{display:none}
+.tl h3{font-size:1.15rem;margin-bottom:4px}
+.tl p{color:var(--muted);font-size:.96rem}
+
+/* price */
+.pricebox{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.pcard{background:var(--hero);color:#fff;padding:36px 24px;text-align:center;display:grid;gap:6px;justify-items:center;align-content:center;position:relative}
+.pcard::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,#16181d 0 33.3%,#d42a2a 33.3% 66.6%,#f0b429 66.6%)}
+.pcard .lbl{color:var(--hero-muted);font-weight:700}
+.pcard .amt{font:800 5rem/1 "Plus Jakarta Sans",sans-serif;direction:ltr;color:var(--gold)}
+.pcard .unit{font-weight:700;margin-bottom:14px}
+.pinfo{padding:34px}
+.plist{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;font-weight:700}
+.plist li{display:flex;gap:10px;align-items:flex-start}
+.plist li::before{content:"\2713";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--accent);font-size:.8rem;flex:none;margin-top:2px}
+.pay{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.pay b{display:block;margin-bottom:8px}
+.pay .pm{display:flex;flex-wrap:wrap;gap:8px}
+.pay .pm span{border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-weight:700;font-size:.9rem;background:var(--bg2)}
+
+/* faq */
+.faqgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start}
+.faq{display:grid;gap:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0 18px}
+summary{cursor:pointer;padding:16px 0;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1;font-weight:800}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);padding-bottom:12px}
+details a{display:inline-block;margin-bottom:16px;color:var(--wa);font-weight:800}
+
+/* final */
+.final{background:var(--hero);color:#fff;border-radius:28px;padding:52px 24px;text-align:center;margin-block:8px 70px;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,#16181d 0 33.3%,#d42a2a 33.3% 66.6%,#f0b429 66.6%)}
+.final h2{font-size:clamp(1.8rem,4vw,2.7rem)}
+.final h2 em{font-style:normal;color:var(--gold)}
+.final p{margin:12px auto 0;max-width:52ch;color:var(--hero-muted)}
+.final .cta-row{justify-content:center}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:800;color:#fff}
+.soc{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px}
+.soc a{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.28);padding:.6em 1.1em;border-radius:999px;text-decoration:none;font-weight:700}
+.soc svg{width:20px;height:20px;fill:currentColor}
+footer{border-top:1px solid var(--line);padding-block:26px 40px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:grid;gap:12px}
+.disc{max-width:80ch}
+.float{position:fixed;z-index:35;bottom:calc(16px + env(safe-area-inset-bottom,0px));inset-inline-end:max(16px,env(safe-area-inset-right,0px));display:inline-flex;align-items:center;gap:.6em;background:var(--wa);color:var(--wa-fg);font-weight:800;padding:.9em 1.3em;border-radius:999px;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.3);transition:opacity .25s,transform .25s}
+.float svg{width:1.3em;height:1.3em;fill:currentColor}
+.float.off{opacity:0;transform:translateY(24px);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.btn,.pill{transition:filter .15s,transform .15s}.btn:hover{transform:translateY(-1px)}}
+
+@media (max-width:980px){.mist{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:30px;padding-block:32px 48px}
+  .docs{grid-template-columns:1fr}
+  .deck,.faqgrid{grid-template-columns:1fr;gap:28px}
+  .tl{grid-template-columns:1fr;gap:18px}.tl li::after{display:none}
+  .pricebox{grid-template-columns:1fr}.pinfo{padding:22px}
+  .row{grid-template-columns:1fr}
+  section.s{padding-block:48px}
+  .leadform{padding:20px}
+  .float{inset-inline:max(12px,env(safe-area-inset-left,0px));justify-content:center}
+  footer{padding-bottom:90px}
+}
+@media (max-width:480px){.bar .btn span{display:none}.bar .btn{padding:.55em .8em}.mist{grid-template-columns:1fr}.logo .wm{font-size:1rem}.logo svg{width:38px;height:38px}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="tbpmark" viewBox="0 0 100 100">
+  <path d="M14 62 A40 26 0 0 1 86 38" fill="none" stroke="#16181d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M10 56 A42 28 0 0 0 70 82" fill="none" stroke="#d42a2a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M74 80 A42 28 0 0 0 90 46" fill="none" stroke="#f0b429" stroke-width="6" stroke-linecap="round"/>
+  <rect x="31" y="20" width="36" height="50" rx="4" fill="#fff" stroke="#1c2f5c" stroke-width="4"/>
+  <circle cx="42" cy="34" r="5" fill="#1c2f5c"/><path d="M34 47c1-6 15-6 16 0" fill="#1c2f5c"/>
+  <path d="M53 31h9M53 37h9M37 54h24M37 61h17" stroke="#1c2f5c" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="66" cy="66" r="13" fill="#22a35a" stroke="#fff" stroke-width="3"/>
+  <path d="M59.5 66l4.5 4.5 8-8.5" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1.2-.3.8-.9 1-1.2.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.6.3.1.2.1.8-.1 1.4z"/></symbol>
+<symbol id="igi" viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></symbol>
+</defs></svg>
+
+<div class="flag full" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="bar full">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="thebewerbungplus"><svg viewBox="0 0 100 100"><use href="#tbpmark"/></svg><span class="wm"><b>thebewerbung</b><span>plus</span></span></a>
+    <div class="acts">
+      <button class="pill" id="lang" type="button" aria-label="Language"></button>
+      <a class="btn btn-wa wa" href="#"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="navCta"></span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="hero full"><div class="wrap">
+  <div>
+    <span class="badge"><span class="mini" aria-hidden="true"><i></i><i></i><i></i></span><span>Bewerbung Professionnelle</span></span>
+    <h1 data-t-html="h1"></h1>
+    <p class="lead" data-t="lead"></p>
+    <div class="hprice"><span class="hp-amt" id="hpAmt"></span><span class="hp-txt"><b data-t="hpU"></b><small data-t="hpS"></small></span></div>
+    <div class="chips">
+      <div class="chip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span><span data-t="ch1"></span></div>
+      <div class="chip"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></span><span data-t="ch2"></span></div>
+      <div class="chip"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></span><span data-t="ch3"></span></div>
+    </div>
+    <div class="proof"><span class="stars">★★★★★</span><a href="#avis" data-t="proofTxt"></a></div>
+  </div>
+  <div class="leadform" id="infos">
+  <form id="order" novalidate>
+    <h2 class="lf-h" data-t="lfH"></h2>
+    <p class="lf-p" data-t="lfP"></p>
+    <div class="row">
+      <div class="fld"><label for="f_first"><span data-t="fFirst"></span> <span class="r">*</span></label><input id="f_first" type="text" autocomplete="given-name"></div>
+      <div class="fld"><label for="f_last"><span data-t="fLast"></span> <span class="r">*</span></label><input id="f_last" type="text" autocomplete="family-name"></div>
+    </div>
+    <div class="row">
+      <div class="fld"><label for="f_de"><span data-t="fDe"></span> <span class="r">*</span></label>
+        <select id="f_de"><option value="" data-t="choose"></option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option><option value="Pas encore commencé" data-t="notYet"></option></select></div>
+      <div class="fld"><label for="f_city"><span data-t="fCity"></span> <span class="r">*</span></label><input id="f_city" type="text" autocomplete="address-level2"></div>
+    </div>
+    <div class="fld"><label for="f_mail"><span data-t="fMail"></span> <span class="r">*</span></label><input id="f_mail" type="email" autocomplete="email" dir="ltr"></div>
+    <div class="fld"><span class="lb"><span data-t="fType"></span> <span class="r">*</span></span>
+      <div class="opts" role="radiogroup">
+        <label class="opt"><input type="radio" name="f_type" value="Ausbildung"> Ausbildung</label>
+        <label class="opt"><input type="radio" name="f_type" value="Arbeit"> Arbeit</label>
+      </div></div>
+    <div class="fld"><label for="f_job"><span id="jobLbl" data-t="fJob"></span> <span class="r">*</span></label><input id="f_job" type="text" autocomplete="off" placeholder="LKW-Fahrer, Pflegefachkraft..."></div>
+    <label class="nocv"><input type="checkbox" id="f_nocv"> <span data-t="noCv"></span></label>
+    <div id="nocvBox" hidden>
+      <p class="lf-p" data-t="noCvP"></p>
+      <div class="row"><div class="fld"><label for="n_phone"><span data-t="nPhone"></span></label><input id="n_phone" type="text" autocomplete="off" data-t-ph="nPhonePh"></div><div class="fld"><label for="n_birth"><span data-t="nBirth"></span></label><input id="n_birth" type="text" autocomplete="off" data-t-ph="nBirthPh"></div></div>
+      <div class="fld"><label for="n_addr"><span data-t="nAddr"></span></label><input id="n_addr" type="text" autocomplete="off" data-t-ph="nAddrPh"></div>
+      <div class="fld"><label for="n_edu"><span data-t="nEdu"></span></label><textarea id="n_edu" rows="3" data-t-ph="nEduPh"></textarea></div>
+      <div class="fld"><label for="n_course"><span data-t="nCourse"></span></label><textarea id="n_course" rows="3" data-t-ph="nCoursePh"></textarea></div>
+      <div class="fld"><label for="n_exp"><span data-t="nExp"></span></label><textarea id="n_exp" rows="3" data-t-ph="nExpPh"></textarea></div>
+      <div class="fld"><label for="n_cert"><span data-t="nCert"></span></label><textarea id="n_cert" rows="3" data-t-ph="nCertPh"></textarea></div>
+      <div class="row"><div class="fld"><label for="n_lang"><span data-t="nLang"></span></label><input id="n_lang" type="text" autocomplete="off" data-t-ph="nLangPh"></div><div class="fld"><label for="n_perm"><span data-t="nPerm"></span></label><input id="n_perm" type="text" autocomplete="off" data-t-ph="nPermPh"></div></div>
+      <div class="fld"><label for="n_skills"><span data-t="nSkills"></span></label><input id="n_skills" type="text" autocomplete="off" data-t-ph="nSkillsPh"></div>
+      <div class="fld"><label for="n_hob"><span data-t="nHob"></span></label><input id="n_hob" type="text" autocomplete="off" data-t-ph="nHobPh"></div>
+      <div class="fld"><label for="n_why"><span data-t="nWhy"></span></label><textarea id="n_why" rows="3" data-t-ph="nWhyPh"></textarea></div>
+    </div>
+    <div class="err" id="err" role="alert"></div>
+    <div class="minirevs" id="miniRevs"></div>
+    <button type="submit" class="btn btn-wa btn-big" id="send"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="send"></span></button>
+    <p class="reassure" data-t-html="reassure"></p>
+  </form>
+  <div class="done" id="done">
+    <h3 data-t="doneH"></h3><p class="lf-p" data-t="doneP"></p>
+    <div class="prev" id="prevMsg"></div>
+    <div class="cta-row" style="justify-content:center"><a class="btn btn-wa" id="waLink" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="send2"></span></a>
+      <button type="button" class="btn btn-line" id="copyMsg" data-t="copy"></button></div>
+  </div>
+  </div>
+</div></div>
+
+<section class="s" id="avis"><div class="wrap">
+  <div class="head-c"><span class="eyebrow" data-t="revEy"></span><h2 class="h2" data-t-html="revH"></h2><p class="sub" data-t="revP"></p></div>
+  <div class="wall" id="wall"></div>
+  <p class="wall-cta"><a href="https://www.instagram.com/thebewerbungplus/" target="_blank" rel="noopener" data-t="revMore"></a></p>
+</div></section>
+
+<section class="s alt full"><div class="wrap">
+  <span class="eyebrow" data-t="docEy"></span><h2 class="h2" data-t-html="docH"></h2><p class="sub" data-t="docP"></p>
+  <div class="docs">
+    <div class="doc">
+      <div class="dic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17c1-2.5 7-2.5 8 0"/></svg></div>
+      <span class="tg">Deckblatt</span><h3 data-t="d1h"></h3><p data-t="d1p"></p></div>
+    <div class="doc">
+      <div class="dic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+      <span class="tg">Lebenslauf</span><h3 data-t="d2h"></h3><p data-t="d2p"></p></div>
+    <div class="doc">
+      <div class="dic"><svg viewBox="0 0 24 24"><path d="M4 6l8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
+      <span class="tg">Motivationsschreiben</span><h3 data-t="d3h"></h3><p data-t="d3p"></p></div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap"><div class="deck">
+  <div>
+    <span class="eyebrow" data-t="dbEy"></span><h2 class="h2" data-t-html="dbH"></h2><p class="sub" data-t="dbP"></p>
+    <div class="why">
+      <div class="w"><span class="n">1</span><b data-t="w1a"></b><small data-t="w1b"></small></div>
+      <div class="w"><span class="n">2</span><b data-t="w2a"></b><small data-t="w2b"></small></div>
+      <div class="w"><span class="n">3</span><b data-t="w3a"></b><small data-t="w3b"></small></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="s alt full"><div class="wrap">
+  <span class="eyebrow" data-t="mEy"></span><h2 class="h2" data-t-html="mH"></h2><p class="sub" data-t="mP"></p>
+  <div class="mist">
+    <div class="m"><span class="k">01</span><b data-t="m1a"></b><small data-t="m1b"></small></div>
+    <div class="m"><span class="k">02</span><b data-t="m2a"></b><small data-t="m2b"></small></div>
+    <div class="m"><span class="k">03</span><b data-t="m3a"></b><small data-t="m3b"></small></div>
+    <div class="m"><span class="k">04</span><b data-t="m4a"></b><small data-t="m4b"></small></div>
+    <div class="m"><span class="k">05</span><b data-t="m5a"></b><small data-t="m5b"></small></div>
+  </div>
+  <p class="fix" data-t-html="mFix"></p>
+</div></section>
+
+<section class="s"><div class="wrap">
+  <span class="eyebrow" data-t="stEy"></span><h2 class="h2" data-t-html="stH"></h2>
+  <ol class="tl">
+    <li><h3 data-t="t1h"></h3><p data-t="t1p"></p></li>
+    <li><h3 data-t="t2h"></h3><p data-t="t2p"></p></li>
+    <li><h3 data-t="t3h"></h3><p data-t="t3p"></p></li>
+  </ol>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+  <div class="pricebox">
+    <div class="pcard"><span class="lbl" data-t="pLbl"></span><div class="amt" id="amt"></div><div class="unit" data-t="priceUnit"></div>
+      <a class="btn btn-wa" href="#infos"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="cta1"></span></a></div>
+    <div class="pinfo"><h2 class="h2" data-t-html="priceH"></h2>
+      <ul class="plist"><li data-t="pl1"></li><li data-t="pl2"></li><li data-t="pl3"></li><li data-t="pl4"></li></ul>
+      <div class="pay"><b data-t="payH"></b><div class="pm"><span>CIH Bank</span><span data-t="pay2"></span><span data-t="pay3"></span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s alt full" id="faq"><div class="wrap faqgrid">
+  <div><span class="eyebrow" data-t="fqEy"></span><h2 class="h2" data-t-html="faqH"></h2><p class="sub" data-t="faqP"></p>
+    <div class="cta-row"><a class="btn btn-wa wa" href="#"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="cta2"></span></a></div></div>
+  <div class="faq">
+    <details><summary data-t="q1"></summary><p data-t="a1"></p><a class="wa" href="#" data-t="askMore"></a></details>
+    <details><summary data-t="q2"></summary><p data-t="a2"></p><a class="wa" href="#" data-t="askMore"></a></details>
+    <details><summary data-t="q3"></summary><p data-t="a3"></p><a class="wa" href="#" data-t="askMore"></a></details>
+    <details><summary data-t="q4"></summary><p data-t="a4"></p><a class="wa" href="#" data-t="askMore"></a></details>
+    <details><summary data-t="q5"></summary><p data-t="a5"></p><a class="wa" href="#" data-t="askMore"></a></details>
+    <details><summary data-t="q6"></summary><p data-t="a6"></p><a class="wa" href="#" data-t="askMore"></a></details>
+  </div>
+</div></section>
+
+<div class="wrap" style="padding-top:64px"><div class="final">
+  <h2 data-t-html="finH"></h2><p data-t="finP"></p>
+  <div class="cta-row"><a class="btn btn-wa" href="#infos"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="cta1"></span></a><a class="btn btn-ghost wa" href="#" data-t="cta2"></a></div>
+  <p style="margin-top:16px"><span data-t="orNum"></span> <span class="num">+212 681 448 753</span></p>
+  <div class="soc">
+    <a href="https://www.instagram.com/thebewerbungplus/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#igi"/></svg>Instagram</a>
+    <a href="https://www.facebook.com/share/18rLUTk6Nz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg>Facebook</a>
+  </div>
+</div></div>
+</main>
+
+<a class="float" href="#infos"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="floatCta"></span></a>
+
+<footer class="full"><div class="wrap">
+  <a class="logo" href="#" aria-label="thebewerbungplus"><svg viewBox="0 0 100 100" style="width:36px;height:36px"><use href="#tbpmark"/></svg><span class="wm" style="font-size:1rem"><b>thebewerbung</b><span>plus</span></span></a>
+  <p class="disc" data-t-html="disc"></p>
+</div></footer>
+
+<script>
+/* Edit these values to change the site. */
+var PHONE = "212681448753";
+var PRICE = "199";
+/* Real comments left by clients under the @thebewerbungplus Instagram posts (shown as written). */
+var REVIEWS = [
+  {u:"ntg.meryieem", t:"Merci infiniment pour votre excellent travail. Mon dossier de candidature est devenu très professionnel grâce à vous. Je recommande vivement vos services. Bonne continuation ❤️❤️"},
+  {u:"der.mo7", t:"شكراً بزاف على المجهود والخدمة الاحترافية. الدوسي جا منظم ومرتب، وعجبني بزاف. الله يعطيكم الصحة والتوفيق 🙏"},
+  {u:"gyf2366", t:"Khdma zwina bzzaf, dossier professionnel w t3amol mzyan. Merci beaucoup, je recommande. 👍"},
+  {u:"timaa__aaa", t:"Merci beaucoup pour votre aide et pour cette belle Bewerbung. Je suis vraiment très satisfaite du résultat 😊❤️"},
+  {u:"elmahfoudi_said369", t:"السلام عليكم اخي شكرا ليك على هاد الخدمة المتقونة والله ❤️❤️"},
+  {u:"lamghari_ayb", t:"khdma zwina u ta3amol professionnel. Merci beaucoup"},
+  {u:"anassfr20", t:"شكرا بزاف على لخدمة نقية ولمتقونة ونتمناو توفيق من الله ❤️❤️"},
+  {u:"luux_douja", t:"Vraiment lkhdma dyalkom wa3raa ota3amol kolchi zween ❤️❤️"},
+  {u:"youhamten", t:"تبارك الله عليكم خدمة زوينة ماشاء الله"}
+];
+
+var T = {
+fr:{navCta:"WhatsApp",cta1:"Commander mon dossier",cta2:"Poser une question",
+h1:"Un dossier qui <em>parle pour vous</em>",
+lead:"Vous visez un travail ou une Ausbildung en Allemagne ? Nous rédigeons un dossier fort et convaincant : Deckblatt, Lebenslauf et Motivationsschreiben, selon les normes allemandes.",
+hpU:"dirhams",hpS:"Le dossier complet, tout compris",dl1:"Votre photo professionnelle",dl2:"Votre nom et vos coordonnées",dl3:"Le poste ou la formation visés",dl4:"La liste des pièces jointes",dl5:"Le même style que le CV et la lettre",ch1:"Livré en moins de 24 h",ch2:"Votre photo retouchée en haute qualité",ch3:"Modifications possibles après la livraison",
+proofTxt:"Ce que nos clients écrivent sur Instagram",
+lfH:"Commandez votre dossier",lfP:"Quelques champs, et votre message WhatsApp est prêt.",
+optAus:"Ausbildung (formation)",optJob:"Emploi",jobPosteLbl:"Poste visé",jobFormLbl:"Formation visée",jobPosteLbl2:"",jobPh1:"LKW-Fahrer, Pflegefachkraft...",jobPh2:"Fachinformatiker, Pflegefachmann, Koch...",
+noCv:"Je n'ai pas de CV : je remplis mes informations ici",noCvP:"Pas de souci. Indiquez ce que vous savez, nous construisons le CV pour vous. Un élément par ligne, avec les dates. Tout est facultatif.",nPhone:"Téléphone / WhatsApp",nPhonePh:"+212 6...",nBirth:"Date de naissance",nBirthPh:"JJ/MM/AAAA",nAddr:"Adresse complète",nAddrPh:"Rue, code postal, ville, pays",nEdu:"Études et diplômes (bac, université…)",nEduPh:"2018 - 2019 | Baccalauréat | Lycée X, Settat\n2019 - 2023 | Licence en économie | Université Y, Settat",nCourse:"Cours de langue (allemand…)",nCoursePh:"09.2023 - 05.2024 | Cours intensif d'allemand | Centre Z, Settat",nExp:"Expériences et stages",nExpPh:"2022 - 2023 | Serveur | Café X, Rabat",nCert:"Certificats et examens",nCertPh:"telc Deutsch B1 | date de l'examen : 14.03.2025",nLang:"Langues et niveaux",nLangPh:"Arabe : langue maternelle, Français : B1, Anglais : A2",nPerm:"Permis de conduire",nPermPh:"Ex : B (ou aucun)",nSkills:"Compétences",nSkillsPh:"Travail en équipe, rigueur, Excel…",nHob:"Centres d'intérêt",nHobPh:"Sport, voyages, lecture…",nWhy:"Pourquoi ce métier / cette formation ?",nWhyPh:"Quelques mots : votre motivation, votre projet en Allemagne",nFiles:"Certificats, diplômes, permis, attestations (PDF ou photo)",nFilesH:"Facultatif. Vous pourrez les envoyer avec le message à l'étape suivante.",
+reassure:"<span>✓ Livré en moins de 24&nbsp;h</span><span>✓ Photo retouchée</span><span>✓ Modifications incluses</span>",fFirst:"Prénom",fLast:"Nom",fDe:"Niveau d'allemand",fCity:"Ville",fMail:"E-mail",fType:"Je cherche",fJob:"Métier exact visé",choose:"Choisir…",notYet:"Pas encore commencé",
+send:"Envoyer sur WhatsApp",send2:"Ouvrir WhatsApp",copy:"Copier le message",
+errReq:"Un champ est vide ou incorrect : il est entouré en rouge.",copied:"Copié",
+doneH:"C'est presque fini",doneP:"WhatsApp s'ouvre avec vos informations. S'il ne s'ouvre pas, appuyez sur le bouton ci-dessous, puis envoyez votre photo dans la conversation.",
+revEy:"AVIS CLIENTS",revH:"Ils ont reçu <em>leur dossier</em>",revP:"Des commentaires laissés par nos clients sous nos publications Instagram, tels qu'ils les ont écrits.",revMore:"Voir tous les commentaires sur Instagram",
+docEy:"VOTRE DOSSIER",docH:"Trois pièces, <em>un seul style</em>",docP:"Chaque dossier est écrit pour le métier que vous visez, avec une mise en page identique sur toutes les pages.",
+d1h:"Page de garde",d1p:"Votre photo, votre nom et le poste visé : la page que le recruteur voit en premier.",
+d2h:"CV allemand",d2p:"Votre parcours, vos formations, vos langues et votre permis, présentés à l'allemande.",
+d3h:"Lettre de motivation",d3p:"Un texte personnel en allemand, écrit pour votre métier, jamais copié-collé.",
+dbEy:"LE SAVIEZ-VOUS ?",dbH:"Le Deckblatt, <em>votre première impression</em>",dbP:"En Allemagne, le Deckblatt est la page de garde du dossier. Le recruteur la voit avant tout le reste et se fait une idée en quelques secondes.",
+w1a:"Une image professionnelle",w1b:"Une page propre avec votre photo montre un dossier soigné.",
+w2a:"L'essentiel d'un coup d'œil",w2b:"Nom, poste visé et coordonnées sont visibles tout de suite.",
+w3a:"Vous sortez du lot",w3b:"Beaucoup de candidats l'oublient ou le bâclent.",
+mEy:"À ÉVITER",mH:"5 erreurs qui <em>font baisser vos chances</em>",mP:"Les erreurs que nous voyons le plus dans les dossiers envoyés en Allemagne.",
+m1a:"CV désorganisé",m1b:"Des informations sans ordre clair, difficiles à lire.",
+m2a:"Lettre copiée",m2b:"Un texte général qui ne parle pas du poste.",
+m3a:"Photo non professionnelle",m3b:"Un selfie ou un fond qui ne convient pas.",
+m4a:"Fautes d'allemand",m4b:"Des erreurs qui donnent une mauvaise image.",
+m5a:"Pages sans unité",m5b:"Aucun style commun, aucun ordre logique.",
+mFix:"Chez TheBewerbung+, votre dossier est structuré, écrit pour votre métier et présenté proprement.",
+stEy:"EN 3 ÉTAPES",stH:"De la commande <em>au PDF</em>",
+t1h:"Vous remplissez le formulaire",t1p:"WhatsApp s'ouvre avec votre message prêt. On complète le reste ensemble.",
+t2h:"Vous envoyez votre photo",t2p:"Nous la retouchons pour la page de garde et le CV.",
+t3h:"Vous recevez votre dossier",t3p:"En PDF, en moins de 24 h. Un détail à changer ? On le corrige.",
+pLbl:"Dossier complet",priceUnit:"dirhams",priceH:"Tout est <em>compris</em>",
+pl1:"Deckblatt, Lebenslauf et Motivationsschreiben en allemand",pl2:"Pour l'Ausbildung et pour le travail (Arbeit)",pl3:"Photo retouchée en haute qualité",pl4:"Modifications après la livraison",
+payH:"Moyens de paiement",pay2:"Virement bancaire",pay3:"Agence de transfert",
+fqEy:"QUESTIONS",faqH:"On vous <em>répond</em>",faqP:"Vous ne trouvez pas votre réponse ? Écrivez-nous directement sur WhatsApp.",
+q1:"Que dois-je envoyer ?",a1:"Votre CV si vous en avez un, une photo, et le métier ou la formation visés. Sans CV, cochez la case du formulaire et remplissez vos informations.",
+q2:"En combien de temps je reçois mon dossier ?",a2:"En moins de 24 heures après réception de toutes vos informations et de votre photo.",
+q3:"Combien ça coûte ?",a3:"Le dossier complet coûte "+PRICE+" DH : Deckblatt, Lebenslauf et Motivationsschreiben.",
+q4:"Comment payer ?",a4:"Par virement bancaire (CIH Bank) ou par agence de transfert. Nous vous donnons les détails sur WhatsApp.",
+q5:"Puis-je demander une modification ?",a5:"Oui. Après la livraison, vous pouvez nous demander de corriger ou d'ajuster un détail.",
+q6:"Ausbildung ou travail ?",a6:"Les deux. Nous préparons des dossiers pour l'Ausbildung et pour le travail, dans tous les métiers : soins, transport, mécanique, électricité, cuisine, commerce…",
+askMore:"Continuer sur WhatsApp",
+finH:"Votre avenir en Allemagne <em>commence par un bon dossier</em>",finP:"Commandez maintenant et recevez votre dossier en moins de 24 h.",orNum:"WhatsApp :",
+floatCta:"Commander mon dossier",
+disc:"TheBewerbung+ rédige des dossiers de candidature en allemand. Nous ne vendons pas d'emplois et ne fournissons ni contrat de travail, ni visa, ni place d'Ausbildung. La décision appartient à l'entreprise ou à l'établissement.",
+wa:"Bonjour, je souhaite commander mon dossier Bewerbung. Mon métier visé : ",waq:"Bonjour, j'ai une question : "},
+ar:{navCta:"واتساب",cta1:"اطلب ملفك",cta2:"سول عبر واتساب",
+h1:"خلّي ملفك <em>يهضر عليك</em>",
+lead:"بغيتي تخدم ولا تقرا فألمانيا؟ كنوجدو ليك ملف ترشيح قوي ومقنع: الـ Deckblatt والـ Lebenslauf والـ Motivationsschreiben، وفق المعايير الألمانية.",
+hpU:"درهم فقط",hpS:"الملف كامل، كلشي داخل",dl1:"التصويرة ديالك باحترافية",dl2:"سميتك ومعلومات التواصل",dl3:"المنصب ولا التكوين المطلوب",dl4:"لائحة الوثائق المرفقة",dl5:"نفس الستيل ديال الـ CV والرسالة",ch1:"تسليم سريع فأقل من 24 ساعة",ch2:"تعديل الصورة ديالك بجودة عالية",ch3:"إمكانية التعديل بعد التسليم",
+proofTxt:"شوف شنو كيكتبو زبناؤنا على Instagram",
+lfH:"اطلب ملفك دابا",lfP:"عمّر هاد الخانات، ورسالتك فواتساب غادي تكون واجدة.",
+optAus:"Ausbildung (تكوين مهني)",optJob:"عمل",jobPosteLbl:"المنصب المطلوب",jobFormLbl:"التكوين المطلوب",jobPh1:"LKW-Fahrer, Pflegefachkraft...",jobPh2:"Fachinformatiker, Pflegefachmann, Koch...",
+noCv:"ليست لدي سيرة ذاتية: سأكتب معلوماتي هنا",noCvP:"لا مشكل. اكتب ما تعرفه وسنبني لك السيرة الذاتية. عنصر في كل سطر مع التواريخ. كل الحقول اختيارية.",nPhone:"الهاتف / واتساب",nPhonePh:"+212 6...",nBirth:"تاريخ الازدياد",nBirthPh:"JJ/MM/AAAA",nAddr:"العنوان الكامل",nAddrPh:"الشارع، الرمز البريدي، المدينة، البلد",nEdu:"الدراسة والشهادات (باك، جامعة…)",nEduPh:"2018 - 2019 | باكالوريا | ثانوية X، سطات\n2019 - 2023 | إجازة في الاقتصاد | جامعة Y، سطات",nCourse:"دورات اللغة (الألمانية…)",nCoursePh:"09.2023 - 05.2024 | دورة مكثفة في الألمانية | مركز Z، سطات",nExp:"التجارب والتداريب",nExpPh:"2022 - 2023 | نادل | مقهى X، الرباط",nCert:"الشواهد والامتحانات",nCertPh:"telc Deutsch B1 | تاريخ الامتحان: 14.03.2025",nLang:"اللغات والمستويات",nLangPh:"العربية: لغة أم، الفرنسية: B1، الإنجليزية: A2",nPerm:"رخصة السياقة",nPermPh:"مثال: B (أو لا يوجد)",nSkills:"المهارات",nSkillsPh:"العمل الجماعي، الدقة، Excel…",nHob:"الاهتمامات",nHobPh:"رياضة، سفر، قراءة…",nWhy:"لماذا هذه المهنة / هذا التكوين؟",nWhyPh:"بضع كلمات: دافعك ومشروعك في ألمانيا",nFiles:"الشواهد والدبلومات ورخصة السياقة والوثائق (PDF أو صورة)",nFilesH:"اختياري. يمكنك إرسالها مع الرسالة في الخطوة التالية.",
+reassure:"<span>✓ فأقل من 24 ساعة</span><span>✓ تعديل الصورة</span><span>✓ التعديلات مضمونة</span>",fFirst:"الاسم الشخصي",fLast:"الاسم العائلي",fDe:"مستواك في الألمانية",fCity:"المدينة",fMail:"البريد الإلكتروني",fType:"أبحث عن",fJob:"المهنة المطلوبة بالتحديد",choose:"اختر…",notYet:"لم أبدأ بعد",
+send:"صيفط عبر واتساب",send2:"فتح واتساب",copy:"نسخ الرسالة",
+errReq:"كاينة خانة خاوية ولا غالطة، وهي محاطة بالأحمر.",copied:"تم النسخ",
+doneH:"تقريباً سالينا",doneP:"غادي يتحل واتساب بالمعلومات ديالك. إلا ما تحلش، ضغط على الزر لتحت، ومن بعد صيفط التصويرة ديالك فالمحادثة.",
+revEy:"آراء الزبناء",revH:"توصلو <em>بالملف ديالهم</em>",revP:"تعليقات كتبوها زبناؤنا تحت المنشورات ديالنا فـ Instagram، كيف ما كتبوها.",revMore:"شوف جميع التعليقات على Instagram",
+docEy:"الملف ديالك",docH:"ثلاث وثائق، <em>ستيل واحد</em>",docP:"كل ملف مكتوب على حساب المهنة اللي باغي، بنفس التصميم فجميع الصفحات.",
+d1h:"صفحة الغلاف",d1p:"صورتك، سميتك والمنصب المطلوب: أول صفحة كيشوفها المسؤول.",
+d2h:"الـ CV بالألمانية",d2p:"المسار ديالك، التكوين، اللغات ورخصة السياقة، مقدمين على الطريقة الألمانية.",
+d3h:"رسالة التحفيز",d3p:"نص شخصي بالألمانية، مكتوب لمهنتك، ماشي منسوخ.",
+dbEy:"واش كتعرف؟",dbH:"الـ Deckblatt، <em>الانطباع الأول</em>",dbP:"فألمانيا، الـ Deckblatt هو صفحة الغلاف ديال الملف. المسؤول كيشوفو قبل كلشي وكيدير فكرة فثواني.",
+w1a:"كيعطي صورة احترافية",w1b:"صفحة نقية مع صورتك كتبين بلي الملف ديالك منظم.",
+w2a:"الأهم من أول نظرة",w2b:"السمية والمنصب ومعلومات التواصل باينين ديريكت.",
+w3a:"كيميزك على الآخرين",w3b:"بزاف ديال المترشحين كينساوه ولا مكيهتموش بيه.",
+mEy:"رد بالك",mH:"5 أخطاء <em>كيطيحو فرص القبول ديالك</em>",mP:"هادو هوما الأخطاء اللي كنشوفو كثر فالملفات المرسلة لألمانيا.",
+m1a:"CV مخربق",m1b:"معلومات بلا ترتيب واضح وصعيبة فالقراية.",
+m2a:"رسالة منسوخة",m2b:"نص عام ما كيهضرش على المنصب المطلوب.",
+m3a:"صورة ماشي احترافية",m3b:"سيلفي ولا خلفية ما مناسباش.",
+m4a:"أخطاء فالألمانية",m4b:"أخطاء كتعطي انطباع خايب.",
+m5a:"صفحات بلا تنسيق",m5b:"حتى ستيل موحد وحتى ترتيب منطقي.",
+mFix:"مع thebewerbungplus، الملف ديالك منظم، مكتوب لمهنتك، ومقدَّم بشكل احترافي.",
+stEy:"فـ 3 مراحل",stH:"من الطلب <em>حتى الـ PDF</em>",
+t1h:"كتعمّر الاستمارة",t1p:"كيتحل واتساب برسالتك واجدة، ونكملو الباقي مع بعض.",
+t2h:"كتصيفط التصويرة",t2p:"كنعدلوها لصفحة الغلاف وللـ CV.",
+t3h:"كتوصل بالملف",t3p:"PDF فأقل من 24 ساعة. بغيتي تبدل شي حاجة؟ كنصححوها ليك.",
+pLbl:"الملف الكامل",priceUnit:"درهم",priceH:"كلشي <em>داخل فالثمن</em>",
+pl1:"الـ Deckblatt والـ Lebenslauf والـ Motivationsschreiben بالألمانية",pl2:"للتكوين المهني (Ausbildung) وللعمل (Arbeit)",pl3:"تعديل الصورة بجودة عالية",pl4:"التعديلات بعد التسليم",
+payH:"طرق الدفع",pay2:"تحويل بنكي",pay3:"وكالة تحويل الأموال",
+fqEy:"أسئلة",faqH:"كنجاوبوك <em>على كلشي</em>",faqP:"ما لقيتيش الجواب؟ كتب لينا ديريكت فواتساب.",
+q1:"شنو خاصني نصيفط؟",a1:"الـ CV إلا كان عندك، تصويرة، والمهنة ولا التكوين اللي باغي. إلا ما عندكش CV، علّم على الخانة فالاستمارة وعمّر المعلومات ديالك.",
+q2:"فشحال من وقت كيوجد الملف؟",a2:"فأقل من 24 ساعة من بعد ما نتوصلو بجميع المعلومات والتصويرة ديالك.",
+q3:"شحال الثمن؟",a3:"الملف الكامل بـ "+PRICE+" درهم: Deckblatt وLebenslauf وMotivationsschreiben.",
+q4:"كيفاش نخلص؟",a4:"بتحويل بنكي (CIH Bank) ولا عبر وكالة تحويل الأموال. كنعطيوك التفاصيل فواتساب.",
+q5:"واش نقدر نطلب تعديل؟",a5:"أه. من بعد التسليم، تقدر تطلب منا نصححو ولا نبدلو أي تفصيل.",
+q6:"Ausbildung ولا خدمة؟",a6:"بجوج. كنوجدو ملفات للتكوين المهني (Ausbildung) وللعمل (Arbeit) فجميع المهن: التمريض، النقل، الميكانيك، الكهرباء، الطبخ، التجارة…",
+askMore:"كمل فواتساب",
+finH:"مستقبلك فألمانيا <em>كيبدا بملف مزيان</em>",finP:"طلب دابا وتوصل بالملف ديالك فأقل من 24 ساعة.",orNum:"واتساب:",
+floatCta:"اطلب ملفك دابا",
+disc:"thebewerbungplus كتوجد ملفات الترشيح بالألمانية. ما كنبيعوش الخدمة، وما كنوفروش عقود عمل ولا تأشيرات ولا مقاعد فالتكوين المهني، والقرار كيرجع للشركة ولا المؤسسة.",
+wa:"السلام عليكم، بغيت نطلب ملف Bewerbung. المهنة المطلوبة: ",waq:"السلام عليكم، عندي سؤال: "}
+};
+
+var lang = "ar";
+try{ var sv = localStorage.getItem("tbp-lang"); if(sv==="ar"||sv==="fr") lang = sv; }catch(e){}
+function $(id){return document.getElementById(id)}
+function v(id){return ($(id).value||"").trim()}
+function waHref(text){return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(text)}
+function isForm(){var t=document.querySelector('input[name=f_type]:checked');return !!t&&t.value==="Ausbildung"}
+function updJob(){var d=T[lang],f=isForm(),t=document.querySelector('input[name=f_type]:checked');
+  $("jobLbl").textContent=t?(f?d.jobFormLbl:d.jobPosteLbl):d.fJob;
+  $("f_job").placeholder=f?d.jobPh2:d.jobPh1;}
+function buildMessage(){
+  var t=document.querySelector('input[name=f_type]:checked'), f=isForm();
+  var BAR=new Array(25).join("=");
+  var L=["```\u{1F1E9}\u{1F1EA} DOSSIER BEWERBUNG \u{1F1E9}\u{1F1EA}",BAR+"```","",
+    "\u{1F464} CANDIDAT(E) :","",
+    "Prénom : "+v("f_first"),"Nom : "+v("f_last"),"Ville : "+v("f_city"),"E-mail : "+v("f_mail"),
+    "Niveau d'allemand : "+v("f_de"),"",
+    "\u{1F3AF} OBJECTIF :","",
+    "Je cherche : "+(t?t.value:""),
+    (f?"Formation visée : ":"Poste visé : ")+v("f_job")];
+  function items(id){return v(id).split("\n").map(function(x){return x.trim()}).filter(Boolean)}
+  if($("f_nocv").checked){
+    var blocks=[];
+    var contact=[]; if(v("n_phone")) contact.push("Téléphone : "+v("n_phone")); if(v("n_birth")) contact.push("Date de naissance : "+v("n_birth")); if(v("n_addr")) contact.push("Adresse : "+v("n_addr"));
+    if(contact.length) blocks.push(["COORDONNÉES :",contact]);
+    [["ÉTUDES ET DIPLÔMES :","n_edu"],["COURS DE LANGUE :","n_course"],["EXPÉRIENCES PROFESSIONNELLES :","n_exp"],["CERTIFICATS ET EXAMENS :","n_cert"],["LANGUES :","n_lang"],["PERMIS DE CONDUIRE :","n_perm"],["COMPÉTENCES :","n_skills"],["CENTRES D'INTÉRÊT :","n_hob"],["MOTIVATION :","n_why"]].forEach(function(p){
+      var it=items(p[1]); if(it.length) blocks.push([p[0],it.length>1?it.map(function(x){return "• "+x}):it]);
+    });
+    if(blocks.length){
+      L.push("","\u{1F4CB} INFORMATIONS :");
+      blocks.forEach(function(b){ L.push("",b[0],""); b[1].forEach(function(x){L.push(x)}); });
+    }
+  }
+  return L.join("\n");
+}
+function revNode(r,cls){
+  var f=document.createElement("figure"); f.className=cls;
+  var top=document.createElement("div"); top.className="top";
+  var av=document.createElement("span"); av.className="av"; var i=document.createElement("span"); i.textContent=r.u.charAt(0).toUpperCase(); av.appendChild(i);
+  var u=document.createElement("span"); u.className="u"; u.textContent=r.u;
+  var src=document.createElement("span"); src.className="src"; src.innerHTML='<svg viewBox="0 0 24 24"><use href="#igi"/></svg>';
+  top.appendChild(av); top.appendChild(u); top.appendChild(src);
+  var p=document.createElement("p"); p.textContent=r.t; p.dir="auto";
+  f.appendChild(top); f.appendChild(p); return f;
+}
+function apply(){
+  var d=T[lang];
+  document.documentElement.lang=lang; document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-t]").forEach(function(el){var k=el.getAttribute("data-t"); if(d[k]!==undefined) el.textContent=d[k]});
+  document.querySelectorAll("[data-t-html]").forEach(function(el){el.innerHTML=d[el.getAttribute("data-t-html")]});
+  document.querySelectorAll("[data-t-ph]").forEach(function(el){var k=el.getAttribute("data-t-ph"); if(d[k]!==undefined) el.placeholder=d[k]});
+  $("lang").textContent = lang==="ar"?"Français":"العربية";
+  updJob();
+  $("amt").textContent=PRICE; $("hpAmt").textContent=PRICE;
+  var mb=$("miniRevs"); mb.textContent="";
+  [0,1].forEach(function(n){var r=REVIEWS[n];
+    var f=document.createElement("figure"); f.className="mr";
+    var av=document.createElement("span"); av.className="av"; av.textContent=r.u.charAt(0).toUpperCase();
+    var b=document.createElement("div");
+    var st=document.createElement("div"); st.className="st"; st.textContent="★★★★★";
+    var q=document.createElement("blockquote"); q.textContent=r.t; q.dir="auto";
+    var w=document.createElement("figcaption"); w.textContent="@"+r.u+" · Instagram";
+    b.appendChild(st); b.appendChild(q); b.appendChild(w); f.appendChild(av); f.appendChild(b); mb.appendChild(f);});
+  var wall=$("wall"); if(!wall.childNodes.length){ REVIEWS.forEach(function(r){ wall.appendChild(revNode(r,"ig")); }); }
+  document.querySelectorAll("a.wa").forEach(function(a){
+    var det=a.closest("details");
+    a.href=waHref(det? d.waq+det.querySelector("summary").textContent : d.wa);
+    a.target="_blank"; a.rel="noopener";
+  });
+}
+$("lang").addEventListener("click",function(){lang=lang==="ar"?"fr":"ar"; try{localStorage.setItem("tbp-lang",lang)}catch(e){} apply()});
+function mark(el,bad){ if(el) el.classList.toggle("bad",!!bad); }
+$("order").addEventListener("submit",function(e){
+  e.preventDefault();
+  var checks=[["f_first",v("f_first")],["f_last",v("f_last")],["f_de",v("f_de")],["f_city",v("f_city")],["f_mail",v("f_mail").indexOf("@")>0],["f_job",v("f_job")]];
+  var firstBad=null;
+  checks.forEach(function(c){ var bad=!c[1]; mark($(c[0]),bad); if(bad&&!firstBad) firstBad=$(c[0]); });
+  var typ=document.querySelector('input[name=f_type]:checked');
+  document.querySelectorAll(".opts .opt").forEach(function(o){mark(o,!typ)});
+  if(!typ&&!firstBad) firstBad=document.querySelector('input[name=f_type]');
+  if(firstBad){ $("err").textContent=T[lang].errReq; try{firstBad.focus()}catch(x){} return; }
+  $("err").textContent="";
+  pixelOnce("Lead",{content_name:v("f_job")}); pixelOnce("Contact",{content_name:"form"});
+  var msg=buildMessage(), href=waHref(msg);
+  $("prevMsg").textContent=msg; $("waLink").href=href;
+  $("order").style.display="none"; $("done").classList.add("on");
+  try{ window.open(href,"_blank","noopener"); }catch(x){}
+});
+document.querySelectorAll(".leadform input,.leadform select,.leadform textarea").forEach(function(el){
+  function clr(){ el.classList.remove("bad"); if(el.name==="f_type") document.querySelectorAll(".opts .opt").forEach(function(o){o.classList.remove("bad")}); }
+  el.addEventListener("input",clr); el.addEventListener("change",clr);
+});
+$("copyMsg").addEventListener("click",function(){
+  var b=this, m=$("prevMsg").textContent;
+  try{ navigator.clipboard.writeText(m).then(function(){b.textContent=T[lang].copied; setTimeout(function(){b.textContent=T[lang].copy},1500)},function(){var r=document.createRange(); r.selectNodeContents($("prevMsg")); var s=getSelection(); s.removeAllRanges(); s.addRange(r)}) }catch(e){}
+});
+document.querySelectorAll("input[name=f_type]").forEach(function(r){r.addEventListener("change",updJob)});
+$("f_nocv").addEventListener("change",function(){$("nocvBox").hidden=!this.checked});
+/* Meta Pixel: one Lead (+ one Contact) per visitor per 24 h (no-op until the TheBewerbung+ pixel is added in <head>) */
+var _sent={};
+function pixelOnce(ev,params){
+  if(_sent[ev]) return; _sent[ev]=1;
+  try{ var k="tbp-"+ev, t=+localStorage.getItem(k)||0; if(Date.now()-t<864e5) return; localStorage.setItem(k,String(Date.now())); }catch(x){}
+  try{ if(window.fbq) fbq("track",ev,params); }catch(x){}
+}
+document.addEventListener("click",function(e){
+  var a=e.target.closest&&e.target.closest("a[href*='wa.me'],a.wa");
+  if(!a) return;
+  pixelOnce("Lead",{content_name:"whatsapp_click"});
+  pixelOnce("Contact",{content_name:"whatsapp_click"});
+},true);
+(function(){
+  var fl=document.querySelector(".float"), box=$("infos");
+  if(fl&&box&&"IntersectionObserver" in window){
+    new IntersectionObserver(function(en){ fl.classList.toggle("off",en[0].isIntersecting); },{threshold:0}).observe(box);
+  }
+  function ready(){
+    var ok=["f_first","f_last","f_de","f_city","f_job"].every(function(i){return v(i)})&&v("f_mail").indexOf("@")>0&&!!document.querySelector("input[name=f_type]:checked");
+    $("send").classList.toggle("ready",ok);
+  }
+  document.querySelectorAll(".leadform input,.leadform select").forEach(function(el){el.addEventListener("input",ready);el.addEventListener("change",ready)});
+})();
+apply();
+</script>
+</body>
+</html>
