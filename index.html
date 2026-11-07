@@ -27,16 +27,8 @@ fbq('init','1029640283379301');fbq('track','PageView');
 :root{
   --bg:#ffffff; --bg2:#f4f6fa; --surface:#ffffff; --fg:#121c33; --muted:#5a6579; --line:#e1e6ef;
   --brand:#1c2f5c; --brand-fg:#ffffff; --accent:#1f8f50; --soft:#e7f5ed; --gold:#f0b429; --red:#d42a2a;
-  --wa:#1b9e50; --wa-fg:#ffffff; --hero:#101a36; --hero-fg:#f3f5fa; --hero-muted:#b4bed3;
+  --wa:#1b9e50; --wa-fg:#ffffff; --hero:#eef3fb; --hero-fg:#121c33; --hero-muted:#4f5b72; color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0b1120; --bg2:#0f172b; --surface:#141e36; --fg:#ecf0f7; --muted:#a3aec4; --line:#24304d;
-  --brand:#4a6dbd; --brand-fg:#ffffff; --accent:#41c27d; --soft:#14301f; --gold:#f2bf47; --red:#ef5a5a;
-  --wa:#34c473; --wa-fg:#04210f; --hero:#070c18; --hero-fg:#eef1f8; --hero-muted:#a3aec4; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0b1120; --bg2:#0f172b; --surface:#141e36; --fg:#ecf0f7; --muted:#a3aec4; --line:#24304d;
-  --brand:#4a6dbd; --brand-fg:#ffffff; --accent:#41c27d; --soft:#14301f; --gold:#f2bf47; --red:#ef5a5a;
-  --wa:#34c473; --wa-fg:#04210f; --hero:#070c18; --hero-fg:#eef1f8; --hero-muted:#a3aec4; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -64,8 +56,6 @@ p{margin:0}
 .logo svg{width:44px;height:44px;flex:none}
 .logo .wm{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:-.02em;line-height:1}
 .logo .wm b{color:var(--brand)}.logo .wm span{color:var(--gold)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo .wm b{color:#fff}}
-:root[data-theme="dark"] .logo .wm b{color:#fff}
 header.bar{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
 .acts{display:flex;gap:8px;align-items:center}
@@ -139,8 +129,6 @@ section.alt{background:var(--bg2)}
 .eyebrow{display:inline-block;font-weight:800;font-size:.85rem;color:var(--accent);margin-bottom:8px;letter-spacing:.02em}
 .h2{font-size:clamp(1.8rem,3.8vw,2.6rem)}
 .h2 em{font-style:normal;color:var(--brand);box-shadow:inset 0 -.38em 0 rgba(240,180,41,.45)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .h2 em{color:var(--gold);box-shadow:none}}
-:root[data-theme="dark"] .h2 em{color:var(--gold);box-shadow:none}
 .sub{color:var(--muted);margin-top:10px;max-width:62ch}
 .head-c{text-align:center}.head-c .sub{margin-inline:auto}
 
@@ -291,6 +279,33 @@ footer .wrap{display:grid;gap:12px}
 .fitc.yes{border-color:var(--accent)}.fitc.yes li::before{content:"\2713";background:var(--soft);color:var(--accent)}
 .fitc.no{border-color:rgba(212,42,42,.45)}.fitc.no li::before{content:"\2715";background:rgba(212,42,42,.12);color:var(--red)}
 @media (max-width:860px){.fit{grid-template-columns:1fr}}
+/* light theme */
+.hero{background:linear-gradient(165deg,#e8effc 0%,#f4f7fd 55%,#ebf7f0 100%)}
+.badge{border-color:rgba(28,47,92,.16);color:var(--brand);background:#fff}
+.hero h1{color:var(--brand)}.hero h1 em{color:var(--accent)}
+.chip .ic{background:#dcf2e5;color:var(--accent)}
+.leadform{box-shadow:0 22px 50px rgba(28,47,92,.14);border:1px solid var(--line)}
+.proof{display:flex;align-items:center;gap:12px;margin-top:24px;padding:10px 14px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 18px rgba(28,47,92,.07);text-decoration:none;color:var(--fg);max-width:460px}
+.proof:hover{border-color:var(--accent)}
+.avs{display:flex;direction:ltr;flex:none}
+.avs i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:800 .85rem "Plus Jakarta Sans",sans-serif;font-style:normal;color:#fff;border:2px solid #fff;margin-inline-start:-8px}
+.avs i:first-child{margin-inline-start:0;background:#1f8f50}.avs i:nth-child(2){background:#1c2f5c}.avs i:nth-child(3){background:#dd2a7b}
+.pt{display:grid;line-height:1.35;font-weight:700;font-size:.93rem}
+.proof .stars{font-size:.95rem;letter-spacing:1px}
+.arr{margin-inline-start:auto;font-size:1.5rem;color:var(--muted);line-height:1}
+html[dir="rtl"] .arr{transform:scaleX(-1)}
+.notice{display:flex;align-items:flex-start;gap:10px;margin-top:12px;max-width:460px;padding:10px 14px;background:#fff8e3;border:1px solid #f2dfa3;border-inline-start:1px solid #f2dfa3;border-radius:14px;color:#5c4a12;font-size:.88rem;font-weight:700;line-height:1.5}
+.ni{flex:none;width:22px;height:22px;border-radius:50%;background:#f0b429;color:#fff;display:grid;place-items:center;font:800 .8rem/1 Georgia,serif;margin-top:1px}
+.pcard{background:linear-gradient(165deg,#e8effc,#ebf7f0);color:var(--fg)}
+.pcard .lbl{color:var(--muted)}.pcard .amt{color:var(--brand)}
+.final{background:linear-gradient(160deg,#e8effc 0%,#f4f7fd 50%,#ebf7f0 100%);color:var(--fg);border:1px solid var(--line)}
+.final h2{color:var(--brand)}.final h2 em{color:var(--accent)}.final p{color:var(--muted)}
+.soc{gap:10px;margin-top:22px;align-items:center}.soc a{margin:0;break-inside:auto}
+.soc a{gap:8px;border:0;color:#fff;padding:.6em 1.05em;font-size:.95rem;font-weight:800;box-shadow:0 8px 20px rgba(28,47,92,.16)}
+.soc a.ig{background:linear-gradient(45deg,#f9a03f 0%,#e1306c 50%,#833ab4 100%)}
+.soc a.fb{background:#1877f2}
+.soc a:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.soc svg{width:22px;height:22px}
 </style>
 </head>
 <body>
@@ -333,8 +348,8 @@ footer .wrap{display:grid;gap:12px}
       <div class="chip"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></span><span data-t="ch2"></span></div>
       <div class="chip"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></span><span data-t="ch3"></span></div>
     </div>
-    <div class="proof"><span class="stars">★★★★★</span><a href="#avis" data-t="proofTxt"></a></div>
-    <p class="notice" data-t="notice"></p>
+    <a class="proof" href="#avis"><span class="avs" aria-hidden="true"><i>N</i><i>D</i><i>T</i></span><span class="pt"><span class="stars">★★★★★</span><span data-t="proofTxt"></span></span><span class="arr" aria-hidden="true">›</span></a>
+    <p class="notice"><span class="ni" aria-hidden="true">i</span><span data-t="notice"></span></p>
   </div>
   <div class="leadform" id="infos">
   <form id="order" novalidate>
@@ -480,8 +495,8 @@ footer .wrap{display:grid;gap:12px}
   <h2 data-t-html="finH"></h2><p data-t="finP"></p>
   <div class="cta-row"><a class="btn btn-wa" href="#infos"><svg viewBox="0 0 24 24"><use href="#wa"/></svg><span data-t="cta1"></span></a></div>
   <div class="soc">
-    <a href="https://www.instagram.com/thebewerbungplus/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#igi"/></svg>Instagram</a>
-    <a href="https://www.facebook.com/share/18rLUTk6Nz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg>Facebook</a>
+    <a class="ig" href="https://www.instagram.com/thebewerbungplus/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#igi"/></svg>Instagram</a>
+    <a class="fb" href="https://www.facebook.com/share/18rLUTk6Nz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg>Facebook</a>
   </div>
 </div></div>
 </main>
@@ -516,7 +531,7 @@ h1:"Un dossier qui <em>parle pour vous</em>",
 lead:"Vous visez un travail ou une Ausbildung en Allemagne ? Nous rédigeons un dossier fort et convaincant : Deckblatt, Lebenslauf et Motivationsschreiben, selon les normes allemandes.",
 hpU:"dirhams",hpS:"Le dossier complet, tout compris",dl1:"Votre photo professionnelle",dl2:"Votre nom et vos coordonnées",dl3:"Le poste ou la formation visés",dl4:"La liste des pièces jointes",dl5:"Le même style que le CV et la lettre",ch1:"Livré en moins de 24 h",ch2:"Votre photo retouchée en haute qualité",ch3:"Modifications possibles après la livraison",
 proofTxt:"Ce que nos clients écrivent sur Instagram",
-lfH:"Commandez votre dossier",lfP:"1 minute de questions, puis votre message WhatsApp est prêt.",notice:"⚠️ Nous ne vendons ni contrat de travail ni visa : nous préparons uniquement votre dossier de candidature en allemand.",fNeed:"Que cherchez-vous ?",needDossier:"Faire préparer mon dossier (Deckblatt + Lebenslauf + Motivationsschreiben) pour 199 DH",needDeja:"J'ai déjà un dossier, je cherche une entreprise ou un contrat",needContrat:"Je cherche un contrat de travail, un visa ou quelqu'un qui me trouve un emploi",noFitH:"Nous ne fournissons ni contrats de travail ni visas.",noFitP:"Notre travail : rédiger votre dossier de candidature en allemand (199 DH). C'est ensuite vous qui l'envoyez aux entreprises. Si c'est ce qu'il vous faut, choisissez la première réponse.",errNeed:"Choisissez d'abord ce que vous cherchez.",fFull:"Nom complet",agree:"👌 D'accord : 199 DH le dossier complet",errAgree:"Cochez 👌 pour continuer.",lvlNote:"Bon à savoir : pour une Ausbildung, la plupart des entreprises demandent au moins le niveau B1. Nous pouvons quand même préparer votre dossier.",fitEy:"POUR QUI ?",fitH:"Ce service est-il <em>pour vous</em> ?",fitP:"On préfère être clair dès le départ : voici ce que nous faisons, et ce que nous ne faisons pas.",fitYesH:"Oui, si…",fy1:"Vous postulez vous-même à une Ausbildung ou à un emploi en Allemagne",fy2:"Il vous faut un Deckblatt, un Lebenslauf et un Motivationsschreiben en allemand",fy3:"Vous voulez un dossier écrit pour votre métier, pas un modèle copié",fy4:"Vous voulez le recevoir en moins de 24 h",fitNoH:"Non, si…",fn1:"Vous attendez un contrat de travail ou une promesse d'embauche",fn2:"Vous cherchez un visa ou quelqu'un qui fait les démarches à votre place",fn3:"Vous avez déjà un dossier complet en allemand",fitCta:"C'est pour moi, je commande",q0:"Vous me trouvez un contrat ou un visa ?",a0:"Non. Nous rédigeons uniquement votre dossier de candidature en allemand ; c'est vous qui postulez auprès des entreprises. Méfiez-vous de ceux qui vendent des contrats de travail.",
+lfH:"Commandez votre dossier",lfP:"1 minute de questions, puis votre message WhatsApp est prêt.",notice:"Nous ne vendons ni contrat de travail ni visa : nous préparons uniquement votre dossier de candidature en allemand.",fNeed:"Que cherchez-vous ?",needDossier:"Faire préparer mon dossier (Deckblatt + Lebenslauf + Motivationsschreiben) pour 199 DH",needDeja:"J'ai déjà un dossier, je cherche une entreprise ou un contrat",needContrat:"Je cherche un contrat de travail, un visa ou quelqu'un qui me trouve un emploi",noFitH:"Nous ne fournissons ni contrats de travail ni visas.",noFitP:"Notre travail : rédiger votre dossier de candidature en allemand (199 DH). C'est ensuite vous qui l'envoyez aux entreprises. Si c'est ce qu'il vous faut, choisissez la première réponse.",errNeed:"Choisissez d'abord ce que vous cherchez.",fFull:"Nom complet",agree:"👌 D'accord : 199 DH le dossier complet",errAgree:"Cochez 👌 pour continuer.",lvlNote:"Bon à savoir : pour une Ausbildung, la plupart des entreprises demandent au moins le niveau B1. Nous pouvons quand même préparer votre dossier.",fitEy:"POUR QUI ?",fitH:"Ce service est-il <em>pour vous</em> ?",fitP:"On préfère être clair dès le départ : voici ce que nous faisons, et ce que nous ne faisons pas.",fitYesH:"Oui, si…",fy1:"Vous postulez vous-même à une Ausbildung ou à un emploi en Allemagne",fy2:"Il vous faut un Deckblatt, un Lebenslauf et un Motivationsschreiben en allemand",fy3:"Vous voulez un dossier écrit pour votre métier, pas un modèle copié",fy4:"Vous voulez le recevoir en moins de 24 h",fitNoH:"Non, si…",fn1:"Vous attendez un contrat de travail ou une promesse d'embauche",fn2:"Vous cherchez un visa ou quelqu'un qui fait les démarches à votre place",fn3:"Vous avez déjà un dossier complet en allemand",fitCta:"C'est pour moi, je commande",q0:"Vous me trouvez un contrat ou un visa ?",a0:"Non. Nous rédigeons uniquement votre dossier de candidature en allemand ; c'est vous qui postulez auprès des entreprises. Méfiez-vous de ceux qui vendent des contrats de travail.",
 optAus:"Ausbildung (formation)",optJob:"Emploi",jobPosteLbl:"Poste visé",jobFormLbl:"Formation visée",jobPosteLbl2:"",jobPh1:"LKW-Fahrer, Pflegefachkraft...",jobPh2:"Fachinformatiker, Pflegefachmann, Koch...",
 noCv:"Je n'ai pas de CV : je remplis mes informations ici",noCvP:"Pas de souci. Indiquez ce que vous savez, nous construisons le CV pour vous. Un élément par ligne, avec les dates. Tout est facultatif.",nPhone:"Téléphone / WhatsApp",nPhonePh:"+212 6...",nBirth:"Date de naissance",nBirthPh:"JJ/MM/AAAA",nAddr:"Adresse complète",nAddrPh:"Rue, code postal, ville, pays",nEdu:"Études et diplômes (bac, université…)",nEduPh:"2018 - 2019 | Baccalauréat | Lycée X, Settat\n2019 - 2023 | Licence en économie | Université Y, Settat",nCourse:"Cours de langue (allemand…)",nCoursePh:"09.2023 - 05.2024 | Cours intensif d'allemand | Centre Z, Settat",nExp:"Expériences et stages",nExpPh:"2022 - 2023 | Serveur | Café X, Rabat",nCert:"Certificats et examens",nCertPh:"telc Deutsch B1 | date de l'examen : 14.03.2025",nLang:"Langues et niveaux",nLangPh:"Arabe : langue maternelle, Français : B1, Anglais : A2",nPerm:"Permis de conduire",nPermPh:"Ex : B (ou aucun)",nSkills:"Compétences",nSkillsPh:"Travail en équipe, rigueur, Excel…",nHob:"Centres d'intérêt",nHobPh:"Sport, voyages, lecture…",nWhy:"Pourquoi ce métier / cette formation ?",nWhyPh:"Quelques mots : votre motivation, votre projet en Allemagne",nFiles:"Certificats, diplômes, permis, attestations (PDF ou photo)",nFilesH:"Facultatif. Vous pourrez les envoyer avec le message à l'étape suivante.",
 reassure:"<span>✓ Livré en moins de 24&nbsp;h</span><span>✓ Photo retouchée</span><span>✓ Modifications incluses</span>",fFirst:"Prénom",fLast:"Nom",fDe:"Niveau d'allemand",fCity:"Ville",fMail:"E-mail",fType:"Je cherche",fJob:"Métier exact visé",choose:"Choisir…",notYet:"Pas encore commencé",
@@ -563,7 +578,7 @@ h1:"خلّي ملفك <em>يهضر عليك</em>",
 lead:"بغيتي تخدم ولا تقرا فألمانيا؟ كنوجدو ليك ملف ترشيح قوي ومقنع: الـ Deckblatt والـ Lebenslauf والـ Motivationsschreiben، وفق المعايير الألمانية.",
 hpU:"درهم فقط",hpS:"الملف كامل، كلشي داخل",dl1:"التصويرة ديالك باحترافية",dl2:"سميتك ومعلومات التواصل",dl3:"المنصب ولا التكوين المطلوب",dl4:"لائحة الوثائق المرفقة",dl5:"نفس الستيل ديال الـ CV والرسالة",ch1:"تسليم سريع فأقل من 24 ساعة",ch2:"تعديل الصورة ديالك بجودة عالية",ch3:"إمكانية التعديل بعد التسليم",
 proofTxt:"شوف شنو كيكتبو زبناؤنا على Instagram",
-lfH:"اطلب ملفك دابا",lfP:"دقيقة وحدة ديال الأسئلة، ومن بعد رسالتك فواتساب كتكون واجدة.",notice:"⚠️ ما كنبيعوش عقود الخدمة ولا الفيزا: كنوجدو غير ملف الترشيح ديالك بالألمانية.",fNeed:"شنو اللي كتقلب عليه؟",needDossier:"نوجد الملف ديالي كامل بـ 199 درهم: Deckblatt و Lebenslauf و Motivationsschreiben",needDeja:"عندي الملف ديجا، كنقلب على شركة ولا عقد",needContrat:"كنقلب على عقد عمل، فيزا، ولا شي واحد يلقى ليا خدمة",noFitH:"حنا ما كنوفروش عقود العمل ولا الفيزا.",noFitP:"الخدمة ديالنا: كنكتبو ليك ملف الترشيح بالألمانية بـ 199 درهم، ونتا اللي كتصيفطو للشركات. إلا هادشي اللي بغيتي، ختار الجواب الأول.",errNeed:"ختار الأول شنو كتقلب عليه.",fFull:"الاسم الكامل",agree:"👌 متافق: الملف كامل بـ 199 درهم",errAgree:"علّم على 👌 باش تكمل.",lvlNote:"معلومة: أغلب الشركات كتطلب على الأقل مستوى B1 للأوسبيلدونغ. ولكن نقدرو نوجدو ليك الملف عادي.",fitEy:"لمن هاد الخدمة؟",fitH:"واش هاد الخدمة <em>ليك</em>؟",fitP:"كنفضلو نكونو واضحين من الأول: هادشي اللي كنديرو، وهادشي اللي ما كنديروش.",fitYesH:"إيه، إلا…",fy1:"كتصيفط بوحدك لـ Ausbildung ولا خدمة فألمانيا",fy2:"محتاج Deckblatt و Lebenslauf و Motivationsschreiben بالألمانية",fy3:"باغي ملف مكتوب على قد المهنة ديالك، ماشي نموذج منقول",fy4:"باغي توصل بيه فأقل من 24 ساعة",fitNoH:"لا، إلا…",fn1:"كتسنى عقد عمل ولا وعد بالخدمة",fn2:"كتقلب على فيزا ولا شي واحد يدير ليك الإجراءات",fn3:"عندك ديجا ملف كامل بالألمانية",fitCta:"هادشي اللي بغيت، نطلب دابا",q0:"واش كتلقاو ليا عقد عمل ولا فيزا؟",a0:"لا. كنكتبو غير ملف الترشيح بالألمانية، ونتا اللي كتصيفطو للشركات. رد البال من أي واحد كيبيع عقود الخدمة.",
+lfH:"اطلب ملفك دابا",lfP:"دقيقة وحدة ديال الأسئلة، ومن بعد رسالتك فواتساب كتكون واجدة.",notice:"ما كنبيعوش عقود الخدمة ولا الفيزا: كنوجدو غير ملف الترشيح ديالك بالألمانية.",fNeed:"شنو اللي كتقلب عليه؟",needDossier:"نوجد الملف ديالي كامل بـ 199 درهم: Deckblatt و Lebenslauf و Motivationsschreiben",needDeja:"عندي الملف ديجا، كنقلب على شركة ولا عقد",needContrat:"كنقلب على عقد عمل، فيزا، ولا شي واحد يلقى ليا خدمة",noFitH:"حنا ما كنوفروش عقود العمل ولا الفيزا.",noFitP:"الخدمة ديالنا: كنكتبو ليك ملف الترشيح بالألمانية بـ 199 درهم، ونتا اللي كتصيفطو للشركات. إلا هادشي اللي بغيتي، ختار الجواب الأول.",errNeed:"ختار الأول شنو كتقلب عليه.",fFull:"الاسم الكامل",agree:"👌 متافق: الملف كامل بـ 199 درهم",errAgree:"علّم على 👌 باش تكمل.",lvlNote:"معلومة: أغلب الشركات كتطلب على الأقل مستوى B1 للأوسبيلدونغ. ولكن نقدرو نوجدو ليك الملف عادي.",fitEy:"لمن هاد الخدمة؟",fitH:"واش هاد الخدمة <em>ليك</em>؟",fitP:"كنفضلو نكونو واضحين من الأول: هادشي اللي كنديرو، وهادشي اللي ما كنديروش.",fitYesH:"إيه، إلا…",fy1:"كتصيفط بوحدك لـ Ausbildung ولا خدمة فألمانيا",fy2:"محتاج Deckblatt و Lebenslauf و Motivationsschreiben بالألمانية",fy3:"باغي ملف مكتوب على قد المهنة ديالك، ماشي نموذج منقول",fy4:"باغي توصل بيه فأقل من 24 ساعة",fitNoH:"لا، إلا…",fn1:"كتسنى عقد عمل ولا وعد بالخدمة",fn2:"كتقلب على فيزا ولا شي واحد يدير ليك الإجراءات",fn3:"عندك ديجا ملف كامل بالألمانية",fitCta:"هادشي اللي بغيت، نطلب دابا",q0:"واش كتلقاو ليا عقد عمل ولا فيزا؟",a0:"لا. كنكتبو غير ملف الترشيح بالألمانية، ونتا اللي كتصيفطو للشركات. رد البال من أي واحد كيبيع عقود الخدمة.",
 optAus:"Ausbildung (تكوين مهني)",optJob:"عمل",jobPosteLbl:"المنصب المطلوب",jobFormLbl:"التكوين المطلوب",jobPh1:"LKW-Fahrer, Pflegefachkraft...",jobPh2:"Fachinformatiker, Pflegefachmann, Koch...",
 noCv:"ليست لدي سيرة ذاتية: سأكتب معلوماتي هنا",noCvP:"لا مشكل. اكتب ما تعرفه وسنبني لك السيرة الذاتية. عنصر في كل سطر مع التواريخ. كل الحقول اختيارية.",nPhone:"الهاتف / واتساب",nPhonePh:"+212 6...",nBirth:"تاريخ الازدياد",nBirthPh:"JJ/MM/AAAA",nAddr:"العنوان الكامل",nAddrPh:"الشارع، الرمز البريدي، المدينة، البلد",nEdu:"الدراسة والشهادات (باك، جامعة…)",nEduPh:"2018 - 2019 | باكالوريا | ثانوية X، سطات\n2019 - 2023 | إجازة في الاقتصاد | جامعة Y، سطات",nCourse:"دورات اللغة (الألمانية…)",nCoursePh:"09.2023 - 05.2024 | دورة مكثفة في الألمانية | مركز Z، سطات",nExp:"التجارب والتداريب",nExpPh:"2022 - 2023 | نادل | مقهى X، الرباط",nCert:"الشواهد والامتحانات",nCertPh:"telc Deutsch B1 | تاريخ الامتحان: 14.03.2025",nLang:"اللغات والمستويات",nLangPh:"العربية: لغة أم، الفرنسية: B1، الإنجليزية: A2",nPerm:"رخصة السياقة",nPermPh:"مثال: B (أو لا يوجد)",nSkills:"المهارات",nSkillsPh:"العمل الجماعي، الدقة، Excel…",nHob:"الاهتمامات",nHobPh:"رياضة، سفر، قراءة…",nWhy:"لماذا هذه المهنة / هذا التكوين؟",nWhyPh:"بضع كلمات: دافعك ومشروعك في ألمانيا",nFiles:"الشواهد والدبلومات ورخصة السياقة والوثائق (PDF أو صورة)",nFilesH:"اختياري. يمكنك إرسالها مع الرسالة في الخطوة التالية.",
 reassure:"<span>✓ فأقل من 24 ساعة</span><span>✓ تعديل الصورة</span><span>✓ التعديلات مضمونة</span>",fFirst:"الاسم الشخصي",fLast:"الاسم العائلي",fDe:"مستواك في الألمانية",fCity:"المدينة",fMail:"البريد الإلكتروني",fType:"أبحث عن",fJob:"المهنة المطلوبة بالتحديد",choose:"اختر…",notYet:"لم أبدأ بعد",
