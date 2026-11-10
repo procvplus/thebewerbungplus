@@ -775,13 +775,14 @@ $("copyMsg").addEventListener("click",function(){
 document.querySelectorAll("input[name=f_lvl]").forEach(function(r){r.addEventListener("change",function(){
   var no=this.value==="none"; $("lvlNo").hidden=!no; $("qRest").hidden=no; $("send").hidden=no; $("err").textContent="";
   $("lvlNote").hidden=this.value!=="A1";
+  if(!no){ try{ if(!v("f_first")) $("f_first").focus({preventScroll:true}); var ff=$("f_first").getBoundingClientRect().top+window.scrollY-140; window.scrollTo({top:ff,behavior:"smooth"}); }catch(x){} }
   document.querySelectorAll(".lvls .lvl").forEach(function(o){o.classList.remove("bad")});
   if(no){ try{ if(window.fbq) fbq("trackCustom","NotQualified",{reason:"no_german"}); }catch(x){} }
 })});
 document.querySelectorAll("input[name=f_need]").forEach(function(r){r.addEventListener("change",function(){
   var no=this.value==="contrat"; $("noFit").hidden=!no; $("qBody").hidden=no; $("send").hidden=no||lvlVal()==="none"; $("err").textContent="";
   document.querySelectorAll(".picks .pick").forEach(function(o){o.classList.remove("bad")});
-  if(!no){ try{ if(!v("f_first")) $("f_first").focus(); }catch(x){} }
+  if(!no){ try{ if(!lvlVal()){ var lb=document.querySelector(".lvls"); var y=lb.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:y,behavior:"smooth"}); } else if(!v("f_first")) $("f_first").focus(); }catch(x){} }
   if(no){ try{ if(window.fbq) fbq("trackCustom","NotQualified",{reason:this.value}); }catch(x){} }
 })});
 /* Meta Pixel: Lead = qualified form only (wants the 150 DH dossier). WhatsApp clicks = Contact only. Once per visitor per 24 h. */
