@@ -56,7 +56,8 @@ html[dir="rtl"] .tricolor{background:linear-gradient(-90deg,#15151a 0 33.3%,var(
 .brand b i{font-style:normal;color:var(--gold2)}
 .top .sp{flex:1}
 .lang{border:1.5px solid var(--ink);background:transparent;border-radius:6px;padding:6px 12px;font:600 13px var(--f);cursor:pointer;color:var(--ink)}
-.toform{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;border-radius:6px;padding:8px 14px}
+.toform{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:linear-gradient(180deg,var(--b1),var(--b2));color:#fff;text-decoration:none;font-weight:700;font-size:14px;border-radius:8px;padding:8px 14px;box-shadow:0 3px 0 var(--b3)}
+.toform .ic{width:17px;height:17px}
 
 /* hero */
 .hero{padding:clamp(28px,5vw,64px) 0 clamp(40px,6vw,80px)}
@@ -111,9 +112,10 @@ html[dir="rtl"] .antrag{box-shadow:-8px 8px 0 var(--ink)}
 .stop b{display:block;color:var(--red)}
 .err{color:var(--red);font-weight:600;font-size:14px;margin-top:6px}
 .err:empty{display:none}
-.submit{margin-top:14px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:0;cursor:pointer;background:var(--ink);color:#fff;font:600 18px var(--f);padding:15px 18px;border-radius:5px}
-.submit .pr{background:var(--gold);color:var(--ink);font:700 16px var(--mono);padding:4px 10px;border-radius:4px;direction:ltr}
-.submit:hover{background:#2a2a31}
+.submit{position:relative;overflow:hidden;margin-top:14px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:0;cursor:pointer;background:linear-gradient(180deg,var(--b1),var(--b2));color:#fff;font:700 19px var(--f);padding:16px 18px;border-radius:12px;box-shadow:0 5px 0 var(--b3),0 18px 28px -14px rgba(196,15,44,.75);transition:transform .15s,box-shadow .15s}
+.submit>span:first-child{display:inline-flex;align-items:center;gap:10px}
+.submit .pr{background:#fff;color:var(--b2);font:700 16px var(--mono);padding:4px 10px;border-radius:7px;direction:ltr}
+.submit:hover{transform:translateY(-2px)}
 .fine{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px;font-size:12.5px;color:var(--soft)}
 .done{display:none;padding:18px}
 .done.on{display:block}
@@ -196,8 +198,17 @@ html[dir="ltr"] .note::before{content:"“"}
 .qt-text p{color:var(--ink2);margin-top:10px;max-width:34em}
 .pm{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .pm span{border:1.5px solid var(--ink);border-radius:4px;padding:4px 10px;font:600 13px var(--f)}
-.cta-ink{display:inline-flex;align-items:center;gap:10px;margin-top:22px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:14px 22px;border-radius:5px}
-.cta-ink b{background:var(--gold);color:var(--ink);padding:2px 8px;border-radius:3px;font-family:var(--mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.cta-ink,.pill,.submit,.toform{--b1:#ef2f4d;--b2:#c40f2c;--b3:#8a0a1f}
+.cta-ink{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;margin-top:22px;background:linear-gradient(180deg,var(--b1),var(--b2));color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:15px 22px;border-radius:12px;box-shadow:0 5px 0 var(--b3),0 18px 28px -14px rgba(196,15,44,.75);transition:transform .15s,box-shadow .15s;cursor:pointer}
+.cta-ink:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--b3),0 22px 30px -14px rgba(196,15,44,.8)}
+.cta-ink:active,.pill:active,.submit:active{transform:translateY(4px);box-shadow:0 1px 0 var(--b3)}
+.cta-ink b,.pill b{background:#fff;color:var(--b2);padding:3px 9px;border-radius:7px;font:700 15px var(--mono);direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.ic{width:24px;height:24px;flex:none}
+.ar{width:22px;height:22px;flex:none;margin-inline-start:-2px}
+html[dir="rtl"] .ar{transform:scaleX(-1)}
+.cta-ink::after,.pill::after,.submit::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3.6s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,62%{left:-60%}100%{left:130%}}
+@media (prefers-reduced-motion:reduce){.cta-ink::after,.pill::after,.submit::after{animation:none;display:none}}
 
 /* faq */
 .qa{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;border-top:1.5px solid var(--ink)}
@@ -229,7 +240,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
 .exk button.on{background:var(--ink);border-color:var(--ink);color:#e9e2d2}.exk button.on b{color:#fff}
 .board .pins{grid-template-columns:1fr;max-width:460px;margin-inline:auto}
 .cta-c{margin-top:34px;display:flex;justify-content:center}
-.big-cta{font-size:19px;padding:17px 28px;box-shadow:0 14px 26px -14px rgba(0,0,0,.7)}
+.big-cta{font-size:20px;padding:18px 28px}
 /* steps */
 .steps4{list-style:none;max-width:760px;position:relative}
 .steps4 li{display:grid;grid-template-columns:56px 1fr;gap:16px;padding-bottom:28px;position:relative}
@@ -240,10 +251,10 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
 .steps4 b{display:block;font-size:20px;margin:10px 0 4px}
 .steps4 div>span{font-size:16.5px;color:var(--ink2)}
 /* floating pill */
-.pill{position:fixed;z-index:40;bottom:max(14px,env(safe-area-inset-bottom));inset-inline-end:20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:700;font-size:18px;padding:14px 22px;border-radius:12px;border:2px solid var(--ink);box-shadow:0 6px 0 var(--ink),0 18px 30px -12px rgba(0,0,0,.6);transition:opacity .25s,transform .25s;animation:nudge 2.6s ease-in-out infinite}
+.pill{position:fixed;z-index:40;bottom:max(14px,env(safe-area-inset-bottom));inset-inline-end:20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,var(--b1),var(--b2));color:#fff;overflow:hidden;text-decoration:none;font-weight:700;font-size:18px;padding:14px 22px;border-radius:12px;border:0;box-shadow:0 5px 0 var(--b3),0 18px 30px -12px rgba(0,0,0,.55);transition:opacity .25s,transform .25s;animation:nudge 2.6s ease-in-out infinite}
 @keyframes nudge{0%,80%,100%{transform:translateY(0)}88%{transform:translateY(-6px)}}
 @media (prefers-reduced-motion:reduce){.pill{animation:none}}
-.pill b{direction:ltr;unicode-bidi:isolate;white-space:nowrap;background:var(--ink);color:var(--gold);font-family:var(--mono);padding:3px 9px;border-radius:6px;font-size:15px}
+
 .pill.off{opacity:0;transform:translateY(30px);pointer-events:none;animation:none}
 
 /* zoom */
@@ -260,6 +271,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   .uhr div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
   .qa{grid-template-columns:1fr}
   .pill{inset-inline:14px;width:auto}
+  .big-cta,.cta-ink{font-size:17px;padding:15px 18px;gap:10px}.cta-ink>span{white-space:nowrap}
   .dossier{grid-template-columns:repeat(3,72%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
   .dossier figure{scroll-snap-align:start}
   .exk{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.exk button{padding:7px 3px;font-size:11.5px}.exk button b{font-size:11.5px}
@@ -285,6 +297,8 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   <circle cx="66" cy="66" r="13" fill="#22a35a" stroke="#fff" stroke-width="3"/>
   <path d="M59.5 66l4.5 4.5 8-8.5" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
+<symbol id="bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+<symbol id="arw" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
 <symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1.2-.3.8-.9 1-1.2.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.6.3.1.2.1.8-.1 1.4z"/></symbol>
 <symbol id="igi" viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></symbol>
 </defs></svg>
@@ -294,7 +308,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   <a class="brand" href="#" aria-label="thebewerbungplus"><svg viewBox="0 0 100 100"><use href="#mk"/></svg><b>thebewerbung<i>plus</i></b></a>
   <span class="sp"></span>
   <button class="lang" id="lang" type="button"><span lang="ar">Français</span><span lang="fr">العربية</span></button>
-  <a class="toform" href="#antrag"><span lang="ar">اطلب ملفك</span><span lang="fr">Commander</span></a>
+  <a class="toform" href="#antrag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">اطلب ملفك</span><span lang="fr">Commander</span></a>
 </div></header>
 
 <main>
@@ -345,7 +359,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
         </div>
       </div>
       <div class="err" id="err" role="alert"></div>
-      <button type="submit" class="submit" id="send"><span><span lang="ar">صيفط الطلب</span><span lang="fr">Envoyer la demande</span></span><span class="pr">200 DH</span></button>
+      <button type="submit" class="submit" id="send"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">أكّد الطلب ديالي</span><span lang="fr">Confirmer ma commande</span></span><span class="pr">200 DH</span></button>
       <div class="fine"><span lang="ar">🔒 المعلومات ديالك كتبقى عندنا، ما كنعطيوهاش لحد</span><span lang="fr">🔒 Vos informations restent chez nous, jamais partagées</span><span lang="ar">💬 كنجاوبوك فواتساب فنفس النهار</span><span lang="fr">💬 Réponse sur WhatsApp le jour même</span></div>
     </form>
     <div class="done" id="done">
@@ -387,13 +401,13 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
     <figure><figcaption class="t2"><b>Anschreiben</b><span lang="ar">رسالة التحفيز</span><span lang="fr">lettre de motivation</span></figcaption><img src="d-elek-anschreiben.webp" data-p="anschreiben" alt="Anschreiben · Elektroniker" width="800" height="1131" loading="lazy" data-zoom></figure>
     <figure><figcaption class="t1"><b>Lebenslauf</b><span lang="ar">السيرة الذاتية</span><span lang="fr">CV</span></figcaption><img src="d-elek-lebenslauf.webp" data-p="lebenslauf" alt="Lebenslauf · Elektroniker" width="800" height="1131" loading="lazy" data-zoom></figure>
   </div>
-  <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><span lang="ar">بغيت ملف بحال هادا</span><span lang="fr">Je veux un dossier comme ça</span><b>200 DH</b></a></div>
+  <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">اطلب ملف بحال هادا</span><span lang="fr">Commander un dossier comme ça</span><b>200 DH</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><use href="#arw"/></svg></a></div>
 </div></section>
 
 <section class="sec" id="avis"><div class="wrap">
   <div class="sec-h"><span class="num">03</span><h2><span lang="ar">شنو قالو علينا الزبناء</span><span lang="fr">Ce que disent nos clients</span></h2><p><span lang="ar">تعليقات حقيقية كتبوها زبناؤنا تحت المنشورات ديالنا فـ Instagram، كيف ما كتبوها.</span><span lang="fr">De vrais commentaires laissés par nos clients sous nos publications Instagram, tels quels.</span></p></div>
   <div class="gb" id="gb"></div>
-  <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><span lang="ar">اطلب ملفك بحالهم</span><span lang="fr">Je commande aussi</span><b>200 DH</b></a></div>
+  <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">اطلب ملفك دابا</span><span lang="fr">Commander mon dossier</span><b>200 DH</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><use href="#arw"/></svg></a></div>
 </div></section>
 
 <section class="sec" id="ablauf" style="padding-top:0"><div class="wrap">
@@ -404,7 +418,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
     <li><span class="sn">3</span><div><b><span lang="ar">حنا كنوجدو ليك الملف بالألمانية</span><span lang="fr">Nous rédigeons le dossier en allemand</span></b><span lang="ar">Deckblatt و Anschreiben و Lebenslauf، خاصين بالخدمة ولا التكوين ديالك.</span><span lang="fr">Deckblatt, Anschreiben et Lebenslauf, adaptés à votre poste ou formation.</span></div></li>
     <li class="last"><span class="sn">4</span><div><b><span lang="ar">كتوصل بالملف PDF</span><span lang="fr">Vous recevez le PDF</span></b><span lang="ar">فأقل من 24 ساعة، جاهز تصيفطو للشركات. إلا بغيتي تبدل شي حاجة، كنبدلوها ليك فابور.</span><span lang="fr">En moins de 24 h, prêt à envoyer. Une retouche ? Nous la faisons gratuitement.</span></div></li>
   </ol>
-  <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><span lang="ar">بدا دابا: عمّر الطلب</span><span lang="fr">Commencer : remplir la demande</span><b>200 DH</b></a></div>
+  <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">اطلب ملفك دابا</span><span lang="fr">Commander mon dossier</span><b>200 DH</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><use href="#arw"/></svg></a></div>
 </div></section>
 
 <section class="sec board" id="preis"><div class="wrap qt-wrap">
@@ -412,7 +426,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
     <h2><span lang="ar">ثمن واحد، بلا مفاجآت</span><span lang="fr">Un seul prix, sans surprise</span></h2>
     <p><span lang="ar">200 درهم للملف كامل، بلا حتى مصاريف زايدة. كتخلص بالتحويل البنكي ولا بـ Cash Plus، وكنعطيوك التفاصيل فالواتساب.</span><span lang="fr">200 DH pour le dossier complet, sans frais cachés. Paiement par virement ou Cash Plus ; nous vous donnons les détails sur WhatsApp.</span></p>
     <div class="pm"><span>CIH Bank</span><span lang="ar">تحويل بنكي</span><span lang="fr">Virement</span><span>Cash Plus</span><span lang="ar">وكالة تحويل</span><span lang="fr">Agence de transfert</span></div>
-    <a class="cta-ink" href="#antrag"><span lang="ar">عمّر الطلب دابا</span><span lang="fr">Faire ma demande</span><b>200 DH</b></a>
+    <a class="cta-ink" href="#antrag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">اطلب ملفك دابا</span><span lang="fr">Commander mon dossier</span><b>200 DH</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><use href="#arw"/></svg></a>
   </div>
   <div class="quittung">
     <h3><span lang="ar">الملف الكامل</span><span lang="fr">LE DOSSIER COMPLET</span></h3>
@@ -446,7 +460,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   <span><span lang="ar">Bewerbungsmappe بالألمانية، من المغرب</span><span lang="fr">Votre Bewerbungsmappe en allemand, depuis le Maroc</span><a href="https://www.instagram.com/thebewerbungplus/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/share/18rLUTk6Nz/" target="_blank" rel="noopener">Facebook</a></span>
 </div></footer>
 
-<a class="pill" id="pill" href="#antrag"><span lang="ar">اطلب ملفك دابا</span><span lang="fr">Commander mon dossier</span><b>200 DH</b></a>
+<a class="pill" id="pill" href="#antrag"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#bag"/></svg><span lang="ar">اطلب ملفك دابا</span><span lang="fr">Commander mon dossier</span><b>200 DH</b></a>
 <div class="zm" id="zm" role="dialog" aria-modal="true"><button type="button" id="zmX" aria-label="close">×</button><img id="zmImg" alt=""></div>
 
 <script>
