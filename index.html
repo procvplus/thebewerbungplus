@@ -263,7 +263,8 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   .stamp{width:104px;height:104px}.stamp b{font-size:30px}
   .toform{padding:7px 11px;font-size:13px}
 }
-@media (max-width:420px){.brand b{font-size:16px}.mappe{transform:scale(.92);transform-origin:top center}}
+@media (max-width:420px){.brand svg{width:30px;height:30px}.brand b{font-size:14.5px}.top .wrap{gap:6px}.lang{padding:5px 8px;font-size:12px}.toform{padding:6px 9px!important;font-size:12.5px!important}.mappe{transform:scale(.92);transform-origin:top center}}
+.hero{overflow-x:clip}
 </style>
 </head>
 <body>
@@ -295,7 +296,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   <div>
     <span class="file-no">🇩🇪 Bewerbung · Ausbildung · Arbeit</span>
     <h1><span lang="ar">خلّي ملفك <span class="hl">يهضر عليك</span></span><span lang="fr">Un dossier qui <span class="hl">parle pour vous</span></span></h1>
-    <p class="sub"><span lang="ar">كنكتبو ليك ملف الترشيح كامل بالألمانية: Deckblatt و Anschreiben و Lebenslauf، خاص بالخدمة ولا التكوين اللي غادي تقدم ليه فألمانيا.</span><span lang="fr">Nous rédigeons votre dossier de candidature complet en allemand : Deckblatt, Anschreiben et Lebenslauf, adapté au poste ou à la formation que vous visez en Allemagne.</span></p>
+    <p class="sub"><span lang="ar">كنوجدو ليك ملف الترشيح كامل بالألمانية: Deckblatt و Anschreiben و Lebenslauf، خاص بالخدمة ولا التكوين اللي غادي تقدم ليه فألمانيا.</span><span lang="fr">Nous préparons votre dossier de candidature complet en allemand : Deckblatt, Anschreiben et Lebenslauf, adapté au poste ou à la formation que vous visez en Allemagne.</span></p>
     <div class="facts"><span lang="ar">فأقل من 24 ساعة</span><span lang="fr">En moins de 24 h</span><span lang="ar">التصويرة معدلة</span><span lang="fr">Photo retouchée</span><span lang="ar">التعديلات فابور</span><span lang="fr">Retouches gratuites</span></div>
     <div class="mappe" aria-hidden="true">
       <div class="tabsrow"><span class="t3">Deckblatt</span><span class="t2">Anschreiben</span><span class="t1">Lebenslauf</span></div>
@@ -315,7 +316,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
           <label class="opt"><input type="radio" name="f_need" value="Arbeit">Arbeit <small><span lang="ar">خدمة</span><span lang="fr">emploi</span></small></label>
           <label class="opt muted"><input type="radio" name="f_need" value="contrat"><span lang="ar">عقد عمل ولا فيزا</span><span lang="fr">Un contrat ou un visa</span></label>
         </div>
-        <div class="stop" id="noFit" hidden><b><span lang="ar">ما كنبيعوش عقود العمل ولا الفيزا.</span><span lang="fr">Nous ne vendons ni contrats ni visas.</span></b><span lang="ar">كنكتبو غير ملف الترشيح بالألمانية (200 درهم)، ونتا اللي كتصيفطو للشركات. إلا هادشي اللي محتاج، ختار Ausbildung ولا Arbeit.</span><span lang="fr">Nous rédigeons uniquement votre dossier en allemand (200 DH), que vous envoyez vous-même. Si c'est ce qu'il vous faut, choisissez Ausbildung ou Arbeit.</span></div>
+        <div class="stop" id="noFit" hidden><b><span lang="ar">ما كنبيعوش عقود العمل ولا الفيزا.</span><span lang="fr">Nous ne vendons ni contrats ni visas.</span></b><span lang="ar">كنوجدو غير ملف الترشيح بالألمانية (200 درهم)، ونتا اللي كتصيفطو للشركات. إلا هادشي اللي محتاج، ختار Ausbildung ولا Arbeit.</span><span lang="fr">Nous rédigeons uniquement votre dossier en allemand (200 DH), que vous envoyez vous-même. Si c'est ce qu'il vous faut, choisissez Ausbildung ou Arbeit.</span></div>
       </div>
       <div id="qBody">
         <div class="q"><span class="lb"><span class="n">02</span><span lang="ar">المستوى ديالك فالألمانية</span><span lang="fr">Votre niveau d'allemand</span></span>
@@ -367,14 +368,11 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
 </div></section>
 
 <section class="sec board" id="nmadij"><div class="wrap">
-  <div class="sec-h"><span class="num">02</span><h2><span lang="ar">نماذج من الملفات اللي كنوجدو</span><span lang="fr">Exemples de dossiers réalisés</span></h2><p><span lang="ar">هادا ملف كامل خدمناه لزبونة كتقدم لـ Ausbildung فالطبخ (Köchin). خبّينا الوجه والمعلومات الشخصية. ورك على أي صفحة باش تكبّرها.</span><span lang="fr">Un dossier complet réalisé pour une cliente candidate à une Ausbildung de cuisinière (Köchin). Visage et coordonnées masqués. Touchez une page pour l'agrandir.</span></p></div>
+  <div class="sec-h"><span class="num">02</span><h2><span lang="ar">نماذج من الملفات اللي كنوجدو</span><span lang="fr">Exemples de dossiers réalisés</span></h2><p><span lang="ar">هادا ملف كامل وجدناه لزبون كيقدم لـ Ausbildung فالإلكترونيك (Elektroniker). خبّينا الوجه والسمية والمعلومات الشخصية. ورك على أي صفحة باش تكبّرها.</span><span lang="fr">Un dossier complet préparé pour un client candidat à une Ausbildung d'électronicien (Elektroniker). Visage, nom et coordonnées masqués. Touchez une page pour l'agrandir.</span></p></div>
   <div class="dossier">
-    <figure><img src="d-koch-deckblatt.webp" alt="Deckblatt · Köchin" width="800" height="1131" loading="lazy" data-zoom><figcaption><b>Deckblatt</b> · <span lang="ar">صفحة الغلاف</span><span lang="fr">page de garde</span></figcaption></figure>
-    <figure><img src="d-koch-anschreiben.webp" alt="Anschreiben · Köchin" width="800" height="1131" loading="lazy" data-zoom><figcaption><b>Anschreiben</b> · <span lang="ar">رسالة التحفيز</span><span lang="fr">lettre de motivation</span></figcaption></figure>
-    <figure><img src="d-koch-lebenslauf.webp" alt="Lebenslauf · Köchin" width="800" height="1131" loading="lazy" data-zoom><figcaption><b>Lebenslauf</b> · <span lang="ar">السيرة الذاتية</span><span lang="fr">CV</span></figcaption></figure>
-  </div>
-  <div class="pins">
-    <figure class="pin"><img src="ig-deckblatt4.webp" alt="Deckblatt" width="720" height="640" loading="lazy" data-zoom><figcaption><span lang="ar">نماذج ديال Deckblatt لمهن مختلفة: Pflege، Kfz، LKW</span><span lang="fr">Modèles de Deckblatt pour différents métiers : Pflege, Kfz, LKW</span></figcaption></figure>
+    <figure><img src="d-elek-deckblatt.webp" alt="Deckblatt · Elektroniker" width="800" height="1131" loading="lazy" data-zoom><figcaption><b>Deckblatt</b> · <span lang="ar">صفحة الغلاف</span><span lang="fr">page de garde</span></figcaption></figure>
+    <figure><img src="d-elek-anschreiben.webp" alt="Anschreiben · Elektroniker" width="800" height="1131" loading="lazy" data-zoom><figcaption><b>Anschreiben</b> · <span lang="ar">رسالة التحفيز</span><span lang="fr">lettre de motivation</span></figcaption></figure>
+    <figure><img src="d-elek-lebenslauf.webp" alt="Lebenslauf · Elektroniker" width="800" height="1131" loading="lazy" data-zoom><figcaption><b>Lebenslauf</b> · <span lang="ar">السيرة الذاتية</span><span lang="fr">CV</span></figcaption></figure>
   </div>
   <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><span lang="ar">بغيت ملف بحال هادا</span><span lang="fr">Je veux un dossier comme ça</span><b>200 DH</b></a></div>
 </div></section>
@@ -390,7 +388,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
   <ol class="steps4">
     <li><span class="sn">1</span><div><b><span lang="ar">عمّر الطلب فهاد الصفحة</span><span lang="fr">Remplissez la demande sur cette page</span></b><span lang="ar">5 أسئلة قصار، أقل من دقيقة. من بعد كيتحل ليك الواتساب بالميساج واجد.</span><span lang="fr">5 questions courtes, moins d'une minute. WhatsApp s'ouvre ensuite avec votre message prêt.</span></div></li>
     <li><span class="sn">2</span><div><b><span lang="ar">صيفط لينا التصويرة والمعلومات</span><span lang="fr">Envoyez votre photo et vos infos</span></b><span lang="ar">فالواتساب: تصويرة ديالك من القدام، والـ CV القديم ولا الشواهد إلا كانو عندك. تقدر تكتب بالدارجة ولا بالفرنسية.</span><span lang="fr">Sur WhatsApp : une photo de face, et votre ancien CV ou vos diplômes si vous en avez. En darija ou en français.</span></div></li>
-    <li><span class="sn">3</span><div><b><span lang="ar">حنا كنكتبو الملف بالألمانية</span><span lang="fr">Nous rédigeons le dossier en allemand</span></b><span lang="ar">Deckblatt و Anschreiben و Lebenslauf، خاصين بالخدمة ولا التكوين ديالك.</span><span lang="fr">Deckblatt, Anschreiben et Lebenslauf, adaptés à votre poste ou formation.</span></div></li>
+    <li><span class="sn">3</span><div><b><span lang="ar">حنا كنوجدو ليك الملف بالألمانية</span><span lang="fr">Nous rédigeons le dossier en allemand</span></b><span lang="ar">Deckblatt و Anschreiben و Lebenslauf، خاصين بالخدمة ولا التكوين ديالك.</span><span lang="fr">Deckblatt, Anschreiben et Lebenslauf, adaptés à votre poste ou formation.</span></div></li>
     <li class="last"><span class="sn">4</span><div><b><span lang="ar">كتوصل بالملف PDF</span><span lang="fr">Vous recevez le PDF</span></b><span lang="ar">فأقل من 24 ساعة، جاهز تصيفطو للشركات. إلا بغيتي تبدل شي حاجة، كنبدلوها ليك فابور.</span><span lang="fr">En moins de 24 h, prêt à envoyer. Une retouche ? Nous la faisons gratuitement.</span></div></li>
   </ol>
   <div class="cta-c"><a class="cta-ink big-cta" href="#antrag"><span lang="ar">بدا دابا: عمّر الطلب</span><span lang="fr">Commencer : remplir la demande</span><b>200 DH</b></a></div>
@@ -419,8 +417,8 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
 <section class="sec" id="fragen"><div class="wrap">
   <div class="sec-h"><span class="num">05</span><h2><span lang="ar">أسئلة وأجوبة</span><span lang="fr">Questions et réponses</span></h2></div>
   <div class="qa">
-    <div><h3><span lang="ar">واش كتلقاو ليا خدمة ولا فيزا؟</span><span lang="fr">Vous me trouvez un emploi ou un visa ?</span></h3><p><span lang="ar">لا. كنكتبو غير ملف الترشيح بالألمانية، ونتا اللي كتصيفطو للشركات. رد البال من أي واحد كيبيع عقود الخدمة.</span><span lang="fr">Non. Nous rédigeons uniquement votre dossier en allemand ; c'est vous qui postulez. Méfiez-vous de ceux qui vendent des contrats.</span></p></div>
-    <div><h3><span lang="ar">واش خاصني نعرف الألمانية؟</span><span lang="fr">Dois-je parler allemand ?</span></h3><p><span lang="ar">إيه، الشركات كتطلب غالباً B1 والمقابلة بالألمانية. ولكن الملف حنا اللي كنكتبوه: صيفط معلوماتك بالدارجة ولا بالفرنسية.</span><span lang="fr">Oui, souvent B1 et l'entretien est en allemand. Mais le dossier, c'est nous qui l'écrivons, à partir de vos infos en darija ou en français.</span></p></div>
+    <div><h3><span lang="ar">واش كتلقاو ليا خدمة ولا فيزا؟</span><span lang="fr">Vous me trouvez un emploi ou un visa ?</span></h3><p><span lang="ar">لا. كنوجدو غير ملف الترشيح بالألمانية، ونتا اللي كتصيفطو للشركات. رد البال من أي واحد كيبيع عقود الخدمة.</span><span lang="fr">Non. Nous rédigeons uniquement votre dossier en allemand ; c'est vous qui postulez. Méfiez-vous de ceux qui vendent des contrats.</span></p></div>
+    <div><h3><span lang="ar">واش خاصني نعرف الألمانية؟</span><span lang="fr">Dois-je parler allemand ?</span></h3><p><span lang="ar">إيه، الشركات كتطلب غالباً B1 والمقابلة بالألمانية. ولكن الملف حنا اللي كنوجدوه: صيفط معلوماتك بالدارجة ولا بالفرنسية.</span><span lang="fr">Oui, souvent B1 et l'entretien est en allemand. Mais le dossier, c'est nous qui l'écrivons, à partir de vos infos en darija ou en français.</span></p></div>
     <div><h3><span lang="ar">شنو خاصني نصيفط؟</span><span lang="fr">Que dois-je envoyer ?</span></h3><p><span lang="ar">تصويرة من القدام، والـ CV القديم ولا الشواهد إلا كانو عندك، والمهنة اللي باغي.</span><span lang="fr">Une photo de face, votre ancien CV ou vos diplômes si vous en avez, et le métier visé.</span></p></div>
     <div><h3><span lang="ar">فشحال من وقت كيوجد؟</span><span lang="fr">En combien de temps ?</span></h3><p><span lang="ar">فأقل من 24 ساعة من بعد ما نتوصلو بالمعلومات والتصويرة.</span><span lang="fr">En moins de 24 h après réception de vos infos et de votre photo.</span></p></div>
     <div><h3><span lang="ar">واش كيصلح للـ Ausbildung وللخدمة؟</span><span lang="fr">Ausbildung ou emploi ?</span></h3><p><span lang="ar">بجوج، فجميع المهن: التمريض، الطبخ، النقل، الميكانيك، الكهرباء، التجارة…</span><span lang="fr">Les deux, dans tous les métiers : soins, cuisine, transport, mécanique, électricité, commerce…</span></p></div>
