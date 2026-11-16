@@ -117,7 +117,7 @@ function norm(p){
   return d;
 }
 function pretty(d){ return d.indexOf("212") === 0 && d.length === 12 ? "+212 " + d.slice(3,4) + " " + d.slice(4,6) + " " + d.slice(6,8) + " " + d.slice(8,10) + " " + d.slice(10) : (d ? "+" + d : ""); }
-function valid(d){ if (d.indexOf("212") === 0) return d.length === 12 && /^212[5-7]/.test(d); return d.length >= 11 && d.length <= 15; }
+function valid(d){ if (!d || d.charAt(0) === "0") return false; if (d.indexOf("212") === 0) return d.length === 12 && /^212[5-7]/.test(d); return d.length >= 11 && d.length <= 15; }
 function upd(){ var d = norm($("phone").value); $("hint").textContent = d ? (valid(d) ? "✓ " + pretty(d) : "النمرة ناقصة") : ""; }
 $("phone").addEventListener("input", upd);
 $("paste").onclick = function(){
