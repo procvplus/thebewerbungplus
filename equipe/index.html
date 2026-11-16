@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>TheBewerbung+ – الطلبات</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111318">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TheBewerbung+">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<style>
+:root{--ink:#111318;--muted:#646a75;--line:#e6e4df;--bg:#f5f4f1;--red:#d7262e;--ok:#1d8a4e;--okbg:#e6f4ec;--errbg:#fbe9ea}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;padding:max(16px,env(safe-area-inset-top)) 16px 32px}
+.wrap{max-width:440px;margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+header img{height:40px}
+header span{font-size:.85rem;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+label{display:block;font-size:.88rem;font-weight:600;margin-bottom:8px}
+.row{display:flex;gap:8px}
+input{width:100%;font:inherit;font-size:1.15rem;padding:14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);outline:none}
+input:focus{border-color:var(--ink)}
+input.ph{direction:ltr;text-align:left;letter-spacing:.5px}
+.paste{flex:none;font:inherit;font-weight:700;font-size:.95rem;padding:0 16px;border:1.5px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink)}
+.hint{font-size:.82rem;color:var(--muted);margin-top:8px;direction:ltr;text-align:right;min-height:1.2em}
+.gap{height:14px}
+.btns{display:grid;gap:12px}
+.b{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font:inherit;font-weight:800;font-size:1.25rem;padding:20px;border:0;border-radius:16px;color:#fff;cursor:pointer;transition:transform .08s,opacity .2s}
+.b:active{transform:scale(.98)}
+.b:disabled{opacity:.5}
+.b small{font-weight:600;font-size:.9rem;opacity:.85}
+.lead{background:var(--ink)}
+.paid{background:var(--ok)}
+.paid.arm{background:#0f5c32;box-shadow:0 0 0 4px #bfe5cf}
+.msg{display:none;border-radius:14px;padding:14px 16px;font-weight:600;line-height:1.5;margin-bottom:14px}
+.msg.ok{display:block;background:var(--okbg);color:#135c35}
+.msg.err{display:block;background:var(--errbg);color:#9b1c22}
+.msg.info{display:block;background:#fff6dc;color:#6b5000}
+h2{font-size:.95rem;margin-bottom:10px}
+.hist{list-style:none;display:grid;gap:8px}
+.hist li{display:flex;justify-content:space-between;gap:10px;font-size:.88rem;border-bottom:1px solid var(--line);padding-bottom:8px}
+.hist li:last-child{border:0;padding:0}
+.hist .n{direction:ltr}
+.hist .t{color:var(--muted);white-space:nowrap}
+.tag{font-weight:700}.tag.l{color:var(--ink)}.tag.p{color:var(--ok)}
+.empty{color:var(--muted);font-size:.88rem}
+.keybox p{font-size:.9rem;color:var(--muted);margin-bottom:10px;line-height:1.6}
+.link{background:none;border:0;color:var(--muted);font:inherit;font-size:.8rem;text-decoration:underline;margin-top:6px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><b style="display:flex;align-items:center;gap:8px;font-size:1.05rem"><img src="logo.svg" alt="">TheBewerbung+</b><span>تسجيل الطلبات</span></header>
+
+  <div class="card keybox" id="keyBox" hidden>
+    <label for="key">رمز الدخول</label>
+    <p>دخّل الرمز مرة وحدة، ومن بعد كيتسجّل فهاد التيليفون.</p>
+    <div class="row"><input id="key" class="ph" autocomplete="off" placeholder="tbp-..."><button class="paste" id="keySave" type="button">حفظ</button></div>
+  </div>
+
+  <div id="msg" class="msg" role="status"></div>
+
+  <div id="app" hidden>
+    <div class="card">
+      <label for="phone">نمرة الواتساب ديال الكليان</label>
+      <div class="row">
+        <input id="phone" class="ph" type="tel" inputmode="tel" autocomplete="off" placeholder="06 12 34 56 78">
+        <button class="paste" id="paste" type="button">لصق</button>
+      </div>
+      <div class="hint" id="hint"></div>
+      <div class="gap"></div>
+      <label for="name">السمية <span style="font-weight:400;color:var(--muted)">(اختياري)</span></label>
+      <input id="name" autocomplete="off" placeholder="مثلاً: Youssef">
+    </div>
+
+    <div class="btns">
+      <button class="b lead" id="bLead" type="button">📝 طلب</button>
+      <button class="b paid" id="bPaid" type="button">✅ خلّص <small>200 درهم</small></button>
+    </div>
+
+    <div class="gap"></div>
+    <div class="card">
+      <h2>آخر العمليات</h2>
+      <ul class="hist" id="hist"></ul>
+      <button class="link" id="resetKey" type="button">بدّل الرمز</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+var URL_ = "https://script.google.com/macros/s/AKfycbyTwARkn63Gh0zlPdf1Jk7lTD8xjho2whMe3-joJUoxwxuzQ9c0POHGQjF3mIAEV6OF/exec";
+var $ = function(id){ return document.getElementById(id); };
+function ls(k, v){ try{ if(v === undefined) return localStorage.getItem(k); if(v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); }catch(e){ return null; } }
+
+/* ---- Clé : #k=... dans le lien, sinon saisie une fois ---- */
+var hk = (location.hash.match(/k=([^&]+)/) || [])[1];
+if (hk) { ls("tbp_key", decodeURIComponent(hk)); history.replaceState(null, "", location.pathname + location.search); }
+var KEY = ls("tbp_key") || "";
+
+function showApp(){ $("keyBox").hidden = !!KEY; $("app").hidden = !KEY; }
+$("keySave").onclick = function(){ var v = $("key").value.trim(); if(!v) return; KEY = v; ls("tbp_key", v); showApp(); };
+$("resetKey").onclick = function(){ KEY = ""; ls("tbp_key", null); msg("", ""); showApp(); };
+
+/* ---- Numéro ---- */
+function norm(p){
+  var d = String(p || "").replace(/\D/g, "");
+  if (d.indexOf("00") === 0) d = d.slice(2);
+  if (d.length === 10 && d.charAt(0) === "0") d = "212" + d.slice(1);
+  if (d.length === 9 && /^[5-7]/.test(d)) d = "212" + d;
+  return d;
+}
+function pretty(d){ return d.indexOf("212") === 0 && d.length === 12 ? "+212 " + d.slice(3,4) + " " + d.slice(4,6) + " " + d.slice(6,8) + " " + d.slice(8,10) + " " + d.slice(10) : (d ? "+" + d : ""); }
+function valid(d){ if (d.indexOf("212") === 0) return d.length === 12 && /^212[5-7]/.test(d); return d.length >= 11 && d.length <= 15; }
+function upd(){ var d = norm($("phone").value); $("hint").textContent = d ? (valid(d) ? "✓ " + pretty(d) : "النمرة ناقصة") : ""; }
+$("phone").addEventListener("input", upd);
+$("paste").onclick = function(){
+  if (!navigator.clipboard || !navigator.clipboard.readText) { $("phone").focus(); return; }
+  navigator.clipboard.readText().then(function(t){ $("phone").value = t.trim(); upd(); }, function(){ $("phone").focus(); });
+};
+
+/* ---- Messages ---- */
+function msg(cls, text){ var m = $("msg"); m.className = "msg " + cls; m.textContent = text; if(!cls) m.className = "msg"; }
+var TXT = {
+  lead: "تسجّل الطلب ✔ ووصل لفيسبوك.",
+  already: "هاد الكليان راه مسجّل من قبل، ما تزاد والو.",
+  paid: "تسجّل الخلاص ديال 200 درهم ✔ ووصل لفيسبوك.",
+  already_paid: "هاد الكليان راه مسجّل بلي خلّص من قبل.",
+  key: "الرمز غالط. كليكي على «بدّل الرمز» ودخّلو من جديد.",
+  phone: "النمرة ماشي صحيحة."
+};
+
+/* ---- Historique ---- */
+function hist(){ try{ return JSON.parse(ls("tbp_hist") || "[]"); }catch(e){ return []; } }
+function addHist(o){ var h = hist(); h.unshift(o); ls("tbp_hist", JSON.stringify(h.slice(0, 15))); drawHist(); }
+function drawHist(){
+  var h = hist(), ul = $("hist"); ul.innerHTML = "";
+  if (!h.length) { ul.innerHTML = '<li class="empty">مازال ما كاين والو.</li>'; return; }
+  h.forEach(function(x){
+    var li = document.createElement("li");
+    var a = document.createElement("span"); a.className = "tag " + (x.a === "paid" ? "p" : "l"); a.textContent = x.a === "paid" ? "خلّص" : "طلب";
+    var n = document.createElement("span"); n.className = "n"; n.textContent = (x.n ? x.n + " · " : "") + pretty(x.p);
+    var t = document.createElement("span"); t.className = "t"; t.textContent = x.t;
+    li.appendChild(a); li.appendChild(n); li.appendChild(t); ul.appendChild(li);
+  });
+}
+
+/* ---- Envoi ---- */
+var busy = false;
+function send(action){
+  if (busy) return;
+  var d = norm($("phone").value), name = $("name").value.trim();
+  if (!valid(d)) { msg("err", TXT.phone); $("phone").focus(); return Promise.resolve(false); }
+  busy = true; $("bLead").disabled = $("bPaid").disabled = true;
+  msg("info", "كنصيفط...");
+  return fetch(URL_, { method: "POST", body: JSON.stringify({ action: action, key: KEY, phone: d, name: name }) })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (res.ok) {
+        msg("ok", TXT[res.msg] || "تم ✔");
+        if (res.msg === "lead" || res.msg === "paid") {
+          var now = new Date();
+          addHist({ a: action, p: d, n: name, t: ("0"+now.getDate()).slice(-2) + "/" + ("0"+(now.getMonth()+1)).slice(-2) + " " + ("0"+now.getHours()).slice(-2) + ":" + ("0"+now.getMinutes()).slice(-2) });
+          if (!window.opener) { $("phone").value = ""; $("name").value = ""; upd(); }
+        }
+        return true;
+      }
+      msg("err", TXT[res.msg] || ("وقع مشكل: " + (res.msg || "")));
+      return false;
+    })
+    .catch(function(){ msg("err", "ما وصلش. شوف الإنترنت وعاود."); return false; })
+    .then(function(ok){ busy = false; $("bLead").disabled = $("bPaid").disabled = false; return ok; });
+}
+
+$("bLead").onclick = function(){ send("lead"); };
+
+/* « خلّص » : deuxième clic pour confirmer */
+var armT = null;
+function disarm(){ clearTimeout(armT); armT = null; $("bPaid").classList.remove("arm"); $("bPaid").innerHTML = "✅ خلّص <small>200 درهم</small>"; }
+function arm(){ $("bPaid").classList.add("arm"); $("bPaid").innerHTML = "كليكي مرة أخرى باش تأكد"; clearTimeout(armT); armT = setTimeout(disarm, 6000); }
+$("bPaid").onclick = function(){
+  if (!armT) { if (!valid(norm($("phone").value))) { msg("err", TXT.phone); return; } arm(); return; }
+  disarm(); send("paid").then(closeIfPopup);
+};
+
+function closeIfPopup(ok){ if (ok && window.opener) setTimeout(function(){ window.close(); }, 2500); }
+
+/* ---- Ouverture depuis WhatsApp Web : ?a=lead|paid&p=...&n=... ---- */
+var q = new URLSearchParams(location.search);
+if (q.get("p")) { $("phone").value = q.get("p"); }
+if (q.get("n")) { $("name").value = q.get("n"); }
+upd(); drawHist(); showApp();
+if (KEY && q.get("a")) {
+  history.replaceState(null, "", location.pathname);
+  if (!valid(norm($("phone").value))) { msg("info", "ما لقيتش النمرة فالواتساب ويب. لصقها هنا."); $("phone").focus(); }
+  else if (q.get("a") === "lead") { send("lead").then(closeIfPopup); }
+  else if (q.get("a") === "paid") { arm(); clearTimeout(armT); armT = setTimeout(disarm, 30000); msg("info", "تأكد من النمرة وكليكي على الزر الأخضر."); }
+}
+})();
+</script>
+</body>
+</html>
