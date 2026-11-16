@@ -538,8 +538,7 @@ $("order").addEventListener("submit",function(e){
   $("err").textContent="";
   var eid="lead-"+Date.now()+"-"+Math.random().toString(36).slice(2,8);
   var low=(lv==="A1");
-  if(low)pixelOnce("LeadLowLevel",{content_name:"dossier_"+need,level:lv},true);
-  else pixelOnce("Lead",{content_name:"dossier_"+need,value:Number(PRICE),currency:"MAD"},false,{eventID:eid});
+  if(!low)pixelOnce("Lead",{content_name:"dossier_"+need,value:Number(PRICE),currency:"MAD"},false,{eventID:eid});
   try{fetch(LEAD_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},
     body:JSON.stringify({name:v("f_first"),phone:v("f_phone"),type:need+" · "+lv,low:low,job:v("f_job"),fbc:fbcVal(),fbp:cookie("_fbp"),page:location.href.split("#")[0],ua:navigator.userAgent,eid:eid})})}catch(x){}
   var msg=buildMessage(),href=waHref(msg);
@@ -551,12 +550,10 @@ $("order").addEventListener("submit",function(e){
 document.querySelectorAll("#order input").forEach(function(i){function c(){i.classList.remove("bad");var o=i.closest(".opt");if(o)o.parentNode.querySelectorAll(".opt").forEach(function(x){x.classList.remove("bad")})}i.addEventListener("input",c);i.addEventListener("change",c)});
 document.querySelectorAll("input[name=f_need]").forEach(function(r){r.addEventListener("change",function(){
   var no=this.value==="contrat";$("noFit").hidden=!no;$("qBody").hidden=no;$("send").hidden=no||lvlVal()==="none";$("err").textContent="";
-  if(no){try{if(window.fbq)fbq("trackCustom","NotQualified",{reason:"contrat"})}catch(x){}}
 })});
 document.querySelectorAll("input[name=f_lvl]").forEach(function(r){r.addEventListener("change",function(){
   var no=this.value==="none";$("lvlNo").hidden=!no;$("qRest").hidden=no;$("send").hidden=no;$("err").textContent="";
   $("lvlNote").hidden=this.value!=="A1";
-  if(no){try{if(window.fbq)fbq("trackCustom","NotQualified",{reason:"no_german"})}catch(x){}}
 })});
 $("copyMsg").addEventListener("click",function(){try{navigator.clipboard.writeText($("prevMsg").textContent)}catch(e){}});
 
