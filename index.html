@@ -107,6 +107,7 @@ html[dir="rtl"] .antrag{box-shadow:-8px 8px 0 var(--ink)}
 .line:focus{outline:none;border-bottom-color:var(--gold2);background:#fff9e6}
 .line::placeholder{color:#aaa395}
 .bad{border-color:var(--red)!important;background:#fff1f1!important}
+.phint{font-size:13.5px;margin-top:6px;min-height:0;font-weight:600}.phint:empty{display:none}.phint.ok{color:#1d7a3e}.phint.no{color:var(--red)}
 .hint{margin-top:9px;font-size:14px;background:#fff6d9;border-inline-start:3px solid var(--gold2);padding:7px 10px}
 .stop{margin:6px 0 4px;font-size:15px;background:#fff1f1;border-inline-start:3px solid var(--red);padding:10px 12px}
 .stop b{display:block;color:var(--red)}
@@ -355,7 +356,7 @@ footer.ft a{font-weight:600;color:var(--ink);text-decoration:none;margin-inline-
           <div class="q"><label class="lb" for="f_job"><span class="n">04</span><span lang="ar">الخدمة ولا التكوين اللي باغي</span><span lang="fr">Poste ou formation visé</span></label>
             <input class="line" id="f_job" type="text" autocomplete="off" data-ph-ar="مثال: Pflegefachkraft، Koch، Elektriker…" data-ph-fr="Ex. : Pflegefachkraft, Koch, Elektriker…"></div>
           <div class="q"><label class="lb" for="f_phone"><span class="n">05</span><span lang="ar">النمرة ديال الواتساب</span><span lang="fr">Votre numéro WhatsApp</span></label>
-            <input class="line" id="f_phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="06 12 34 56 78"></div>
+            <input class="line" id="f_phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="06 12 34 56 78"><div class="phint" id="f_phoneHint" aria-live="polite"></div></div>
         </div>
       </div>
       <div class="err" id="err" role="alert"></div>
@@ -504,7 +505,12 @@ function needVal(){var t=document.querySelector('input[name=f_need]:checked');re
 function lvlVal(){var t=document.querySelector('input[name=f_lvl]:checked');return t?t.value:""}
 function cookie(n){var m=document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)"));return m?decodeURIComponent(m[1]):""}
 function fbcVal(){var c=cookie("_fbc");if(c)return c;var m=location.search.match(/[?&]fbclid=([^&]+)/);return m?"fb.1."+Date.now()+"."+decodeURIComponent(m[1]):""}
-function phoneOk(p){return p.replace(/\D/g,"").length>=9}
+function phoneInfo(p){var raw=String(p||"").trim(),d=raw.replace(/\D/g,""),intl=/^(\+|00)/.test(raw);if(d.indexOf("00")===0)d=d.slice(2);if(!d)return{ok:0,e:"empty"};if(intl&&d.indexOf("212")!==0)return(d.length>=10&&d.length<=15)?{ok:1,d:d}:{ok:0,e:"intl"};if(d.indexOf("212")===0)d=d.slice(3);if(d.charAt(0)==="0")d=d.slice(1);if(!/^[5-7]/.test(d))return{ok:0,e:"start"};if(d.length!==9)return{ok:0,e:d.length<9?"short":"long"};return{ok:1,d:"212"+d}}
+function phonePretty(d){return d.indexOf("212")===0&&d.length===12?"+212 "+d.slice(3,4)+" "+d.slice(4,6)+" "+d.slice(6,8)+" "+d.slice(8,10)+" "+d.slice(10):"+"+d}
+function phoneOk(p){return !!phoneInfo(p).ok}
+function phoneVal(){var i=phoneInfo(v("f_phone"));return i.ok?phonePretty(i.d):v("f_phone")}
+var PH_ERR={empty:["دخل النمرة ديال الواتساب.","Entrez votre numéro WhatsApp."],short:["النمرة ناقصة، خاصها 10 ديال الأرقام (مثال: 06 12 34 56 78).","Numéro incomplet : il faut 10 chiffres (ex. 06 12 34 56 78)."],long:["النمرة فيها أرقام زايدين، خاصها 10 ديال الأرقام.","Trop de chiffres : il en faut 10 (ex. 06 12 34 56 78)."],start:["النمرة المغربية كتبدا بـ 06 ولا 07 ولا 05.","Un numéro marocain commence par 06, 07 ou 05."],intl:["نمرة الخارج ماشي صحيحة، كتبها بالكود ديال البلاد (مثال: +34 …).","Numéro étranger incorrect : ajoutez l'indicatif (ex. +34 …)."]};
+function phoneHint(force){var h=$("f_phoneHint"),i=phoneInfo(v("f_phone"));if(!h)return i.ok;if(i.ok){h.className="phint ok";h.textContent="✓ "+phonePretty(i.d)}else if(force||h.className.indexOf("no")>-1){if(i.e==="empty"&&!force){h.className="phint";h.textContent=""}else{h.className="phint no";h.textContent=tx(PH_ERR[i.e][0],PH_ERR[i.e][1])}}else{h.className="phint";h.textContent=""}return i.ok}
 function waHref(t){return "https://api.whatsapp.com/send?phone="+PHONE+"&text="+encodeURIComponent(t)}
 function mark(e,b){if(e)e.classList.toggle("bad",!!b)}
 function buildMessage(){
@@ -512,12 +518,12 @@ function buildMessage(){
   if(lang==="ar"){
     return ["السلام عليكم \u{1F44B} أرغب في طلب ملف الترشيح باللغة الألمانية.","","*\u{1F1E9}\u{1F1EA} DOSSIER BEWERBUNG*","",
       "\u{1F464} الاسم الكامل: "+v("f_first"),"\u{1F3AF} نوع الترشيح: "+need,"\u{1F5E3}️ المستوى في الألمانية: "+lvlVal(),
-      "\u{1F4BC} "+(f?"التكوين المطلوب: ":"المجال المطلوب: ")+v("f_job"),"\u{1F4F1} رقم الهاتف: "+v("f_phone"),"",
+      "\u{1F4BC} "+(f?"التكوين المطلوب: ":"المجال المطلوب: ")+v("f_job"),"\u{1F4F1} رقم الهاتف: "+phoneVal(),"",
       "\u{1F4B0} العرض: الملف الكامل، "+PRICE+" درهم ✔","\u{1F310} المصدر: thebewerbungplus.store"].join("\n");
   }
   return ["Bonjour \u{1F44B} Je souhaite commander mon dossier de candidature en allemand.","","*\u{1F1E9}\u{1F1EA} DOSSIER BEWERBUNG*","",
     "\u{1F464} Nom complet : "+v("f_first"),"\u{1F3AF} Je cherche : "+need,"\u{1F5E3}️ Niveau d'allemand : "+lvlVal(),
-    "\u{1F4BC} "+(f?"Formation visée : ":"Poste visé : ")+v("f_job"),"\u{1F4F1} Téléphone : "+v("f_phone"),"",
+    "\u{1F4BC} "+(f?"Formation visée : ":"Poste visé : ")+v("f_job"),"\u{1F4F1} Téléphone : "+phoneVal(),"",
     "\u{1F4B0} Offre : dossier complet, "+PRICE+" DH ✔","\u{1F4CE} CV : je l'envoie ici","\u{1F4F7} Photo : je l'envoie ici","\u{1F310} Source : thebewerbungplus.store"].map(function(x){return x?"‎"+x:x}).join("\n");
 }
 $("order").addEventListener("submit",function(e){
@@ -533,14 +539,14 @@ $("order").addEventListener("submit",function(e){
   var bad=null;
   if(!v("f_first")){mark($("f_first"),1);bad=bad||$("f_first")}
   if(!v("f_job")){mark($("f_job"),1);bad=bad||$("f_job")}
-  if(!phoneOk(v("f_phone"))){mark($("f_phone"),1);bad=bad||$("f_phone")}
+  if(!phoneHint(true)){mark($("f_phone"),1);bad=bad||$("f_phone")}
   if(bad){$("err").textContent=tx("كاينة خانة خاوية ولا غالطة (بالأحمر).","Un champ est vide ou incorrect (en rouge).");try{bad.focus()}catch(x){}return}
   $("err").textContent="";
   var eid="lead-"+Date.now()+"-"+Math.random().toString(36).slice(2,8);
   var low=(lv==="A1");
   if(!low)pixelOnce("Lead",{content_name:"dossier_"+need,value:Number(PRICE),currency:"MAD"},false,{eventID:eid});
   try{fetch(LEAD_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},
-    body:JSON.stringify({name:v("f_first"),phone:v("f_phone"),type:need+" · "+lv,low:low,job:v("f_job"),fbc:fbcVal(),fbp:cookie("_fbp"),page:location.href.split("#")[0],ua:navigator.userAgent,eid:eid})})}catch(x){}
+    body:JSON.stringify({name:v("f_first"),phone:phoneVal(),type:need+" · "+lv,low:low,job:v("f_job"),fbc:fbcVal(),fbp:cookie("_fbp"),page:location.href.split("#")[0],ua:navigator.userAgent,eid:eid})})}catch(x){}
   var msg=buildMessage(),href=waHref(msg);
   $("prevMsg").textContent=msg;$("waLink").href=href;
   $("order").style.display="none";$("done").classList.add("on");
@@ -555,6 +561,7 @@ document.querySelectorAll("input[name=f_lvl]").forEach(function(r){r.addEventLis
   var no=this.value==="none";$("lvlNo").hidden=!no;$("qRest").hidden=no;$("send").hidden=no;$("err").textContent="";
   $("lvlNote").hidden=this.value!=="A1";
 })});
+$("f_phone").addEventListener("input",function(){phoneHint(false)});$("f_phone").addEventListener("blur",function(){if(v("f_phone"))phoneHint(true)});
 $("copyMsg").addEventListener("click",function(){try{navigator.clipboard.writeText($("prevMsg").textContent)}catch(e){}});
 
 var _sent={};
